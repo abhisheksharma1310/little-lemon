@@ -13,7 +13,7 @@ const Menu = () => {
       <div className="menu-items">
         {MenuItems?.map((item) => {
           return (
-            <div className="menu-item">
+            <div key={item.id} className="menu-item">
               <img className="menu-item-img" src={item.img} alt={item.title} />
               <div className="menu-item-title-price">
                 <h3 className="menu-item-title">{item.title}</h3>

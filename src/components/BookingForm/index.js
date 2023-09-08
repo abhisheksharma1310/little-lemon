@@ -29,7 +29,7 @@ const BookingForm = () => {
   return (
     <div className="booking-section">
       <form className="booking-form" onSubmit={handleFormSubmit} method="post">
-        <label for="res-date">Choose date</label>
+        <label htmlFor="res-date">Choose date</label>
         <input
           type="date"
           id="res-date"
@@ -39,19 +39,21 @@ const BookingForm = () => {
           onChange={handleForm}
           required
         />
-        <label for="res-time">Choose time</label>
+        <label htmlFor="res-time">Choose time</label>
         <select
-          id="res-time "
+          id="res-time"
           name="time"
           value={formData.time}
           onChange={handleForm}
           required
         >
           {availableTimes?.map((time) => (
-            <option>{time}</option>
+            <option key={time} value={time}>
+              {time}
+            </option>
           ))}
         </select>
-        <label for="guests">Number of guests</label>
+        <label htmlFor="guests">Number of guests</label>
         <input
           type="number"
           placeholder="1"
@@ -63,7 +65,7 @@ const BookingForm = () => {
           onChange={handleForm}
           required
         />
-        <label for="occasion">Occasion</label>
+        <label htmlFor="occasion">Occasion</label>
         <select
           id="occasion"
           name="occasion"
@@ -72,7 +74,9 @@ const BookingForm = () => {
           required
         >
           {occasion?.map((occ) => (
-            <option>{occ}</option>
+            <option key={occ} value={occ}>
+              {occ}
+            </option>
           ))}
         </select>
         <input type="submit" value="Make Your reservation" />
