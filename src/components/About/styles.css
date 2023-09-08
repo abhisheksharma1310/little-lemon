@@ -1,0 +1,73 @@
+.about-img img {
+  grid-area: hero-img;
+  margin: 1em 0;
+  width: 25em;
+  height: 22em;
+  border-radius: 1em;
+}
+
+.about-content {
+  width: 40em;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.about-content h1 {
+  color: #f4ce14;
+  font-size: 2.5em;
+}
+.about-content h2 {
+  font-size: 2em;
+}
+
+.about-content p {
+  color: #333333;
+  font-family: Karla;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.about-section {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vmax 8vmax;
+  gap: 2vmax;
+  margin: 2em 0;
+  /* background-image: url("../../assets/icons/restaurant.jpg"); */
+}
+
+@media (max-width: 720px) {
+  .about-section {
+    padding: 2vmax;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-content {
+    width: 20em;
+  }
+  .about-img img {
+    width: 20em;
+    height: 20em;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1080px) {
+  .about-section {
+  }
+  .about-content {
+    width: 30em;
+  }
+  .about-img img {
+    width: 22em;
+    height: 20em;
+  }
+}

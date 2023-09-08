@@ -1,0 +1,95 @@
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header h2 {
+  font-size: 3em;
+}
+
+.menu-header button {
+  display: flex;
+  padding: 1em;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 0.5em;
+  background: #f4ce14;
+  cursor: pointer;
+}
+
+.menu-item-img {
+  border-radius: 0.5em 0.5em 0 0;
+  width: 100%;
+  height: 12em;
+}
+
+.menu-item-title-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.menu-item-price {
+  color: #f4ce14;
+  font-weight: 700;
+}
+
+.menu-item-desc {
+  padding: 1em;
+  height: 8em;
+}
+
+.menu-item-btn {
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.menu-item {
+  grid-area: menu-item;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 20em;
+  background-color: #edefef;
+  border-radius: 0.5em;
+}
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 2em 0;
+  width: 100%;
+}
+
+.menu-section {
+  padding: 1vmax 8vmax;
+}
+
+@media (max-width: 720px) {
+  .menu-section {
+    padding: 2vmax;
+  }
+  .menu-header h2 {
+    font-size: 2em;
+  }
+  .menu-items {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1080) {
+  .menu-section {
+    padding: 2vmax;
+  }
+  .menu-header h2 {
+    font-size: 2em;
+  }
+  .menu-items {
+    justify-content: center;
+  }
+}
