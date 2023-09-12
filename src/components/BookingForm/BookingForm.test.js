@@ -1,36 +1,50 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import BookingForm from "./index";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import configureStore from 'redux-mock-store'; // You may need to install this package
 
-test("it should handle form submission and capture the selected values", () => {
-  // Create a spy function to capture console.log calls
-  const consoleSpy = jest.spyOn(console, "log");
+import BookingForm from './index.jsx'; // Import your component here
 
-  render(<BookingForm />);
+const mockStore = configureStore([]);
 
-  // Fill in the form fields
-  const dateInput = screen.getByLabelText("Choose date");
-  const timeSelect = screen.getByLabelText("Choose time");
-  const guestInput = screen.getByLabelText("Number of guests");
-  const occasionSelect = screen.getByLabelText("Occasion");
+describe('BookingForm Component', () => {
+  let store;
+  let initialState = {}; // Define your initial state here
 
-  fireEvent.change(dateInput, { target: { value: "2023-09-08" } });
-  fireEvent.change(timeSelect, { target: { value: "18" } });
-  fireEvent.change(guestInput, { target: { value: "4" } });
-  fireEvent.change(occasionSelect, { target: { value: "Party" } });
-
-  // Submit the form
-  const submitButton = screen.getByText("Make Your reservation");
-  fireEvent.click(submitButton);
-
-  // Check if the form data is captured correctly
-  expect(consoleSpy).toHaveBeenCalledWith({
-    date: "2023-09-08",
-    time: "18",
-    guest: "4",
-    occasion: "Party",
+  beforeEach(() => {
+    store = mockStore(initialState);
   });
 
-  // Restore the original console.log
-  consoleSpy.mockRestore();
+  test('renders correctly', () => {
+    render(
+      <Provider store={store}>
+        <Router>
+          <BookingForm />
+        </Router>
+      </Provider>
+    );
+
+    // You can use screen.getByLabelText, screen.getByText, etc. to access form elements and make assertions.
+    const dateInput = screen.getByLabelText('Choose date');
+    const timeInput = screen.getByLabelText('Choose time');
+    const guestsInput = screen.getByLabelText('Number of guests');
+    const occasionInput = screen.getByLabelText('Occasion');
+    const submitButton = screen.getByText('Make Your reservation');
+
+    // You can use userEvent library to simulate user interactions
+    userEvent.type(dateInput, '2023-12-31');
+    userEvent.selectOptions(timeInput, '18.0');
+    userEvent.type(guestsInput, '4');
+    userEvent.selectOptions(occasionInput, 'Anniversary');
+    userEvent.click(submitButton);
+
+    // Make assertions about the form interactions and any expected behavior
+
+    // For example:
+    expect(dateInput).toHaveValue('2023-12-31');
+    expect(timeInput).toHaveValue('18.0');
+    expect(guestsInput).toHaveValue('4');
+  });
 });

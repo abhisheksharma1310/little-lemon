@@ -4,10 +4,11 @@ footer {
   background-color: #333333;
   padding: 2vmax 8vmax;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 50px;
   column-gap: 50px;
   color: #fffef2;
+  margin-top: 2em;
 }
 
 footer a {
@@ -15,6 +16,10 @@ footer a {
   padding: 4px;
   color: #fffef2;
   text-decoration: none;
+}
+
+footer .link {
+  cursor: pointer;
 }
 
 footer p {

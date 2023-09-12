@@ -1,6 +1,5 @@
 .testimonials-section {
   width: 100vw;
-  height: 20em;
   padding: 2vmax 8vmax;
   display: flex;
   flex-direction: column;
@@ -36,6 +35,7 @@
   padding: 1em;
   border-radius: 0.5em;
   width: 15em;
+  height: 14em;
 }
 
 .testimonial-star {

@@ -1,36 +1,37 @@
-.booking-section {
+.login-section {
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1vmax 8vmax;
+  padding: 0 8vmax;
 }
 
-.booking-section h2 {
-  color:  #f4ce14;
+.login-section h2 {
+  color: #f4ce14;
   text-align: center;
   font-size: 2em;
 }
 
-.booking-form {
-  margin-top: 1em;
+.login-form {
+  margin-top: .5em;
   display: grid;
   min-width: 20em;
-  gap: 0.7em;
+  gap: 0.4em;
 }
 
-.booking-form  label {
+
+.login-form  label {
     font-size: 1.2em;
 }
 
-.booking-form input, select {
+.login-form input, select {
     width: 100%;
     padding: .5em;
     font-size: 1em;
 }
 
-.booking-form input[type="submit"] {
+.login-form input[type="submit"] {
     margin: 1em 0;
     cursor: pointer;
     background-color: #333333;
@@ -38,7 +39,7 @@
     border-radius: .3em;
 }
 
-.booking-form input[type="submit"]:hover {
+.login-form input[type="submit"]:hover {
     background-color: #666666;
 }
 
@@ -49,4 +50,20 @@
 .field-err {
   outline: .1em solid red;
   border: 0;
+}
+
+.login-btn {
+    font-wight: 500;
+    cursor: pointer;
+    color: blue;
+}
+
+.login-btn:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .login-section {
+    padding: 2vmax;
+  }
 }

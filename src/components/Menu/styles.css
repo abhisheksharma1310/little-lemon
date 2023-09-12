@@ -38,12 +38,38 @@
 
 .menu-item-desc {
   padding: 1em;
-  height: 8em;
+  height: 6em;
 }
 
 .menu-item-btn {
   padding: 0.5em;
-  margin: 1em;
+  margin: 1em .5em;
+  cursor: pointer;
+  width: 40%;
+  font-weight: 500;
+}
+
+.menu-item-btn-d {
+  padding: 0.5em;
+  margin: 1em .5em;
+  width: 50%;
+}
+
+.menu-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-item-p {
+  width: 35%;
+}
+
+.menu-item-select {
+  width: 4em;
+  height: 2em;
+  margin-right: 1em;
+  border: none;
 }
 
 .menu-item {

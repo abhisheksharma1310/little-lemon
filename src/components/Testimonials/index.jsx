@@ -1,24 +1,30 @@
-
-import React from 'react';
+import React from "react";
+import testimonialsData from "../../assets/data/testimonials";
 
 import "./styles.css";
+import testimonials from "../../assets/data/testimonials";
 
 const Testimonials = () => {
+  const str = "⭐";
   return (
-    <section className='testimonials-section'>
-        <header className='testimonials-header'>What our customers say!</header>
-        <div className='testimonials-container'>
-            <div className='testimonial'>
-                <p className='testimonial-star'>⭐⭐⭐⭐⭐</p>
-                <div className='testimonial-profile'>
-                    <img className='testimonial-profile-pic'/>
-                    <p className='testimonial-profile-name'>Abhishek</p>
-                </div>
-                <p className='testimonial-desc'>Description</p>
+    <section className="testimonials-section">
+      <header className="testimonials-header">What our customers say!</header>
+      <div className="testimonials-container">
+        {testimonialsData?.map((testimonial) => {
+          return (
+            <div key={testimonial.name} className="testimonial">
+              <p className="testimonial-star">{str.repeat(testimonial.rating)}</p>
+              <div className="testimonial-profile">
+                <img className="testimonial-profile-pic" alt=""/>
+                <p className="testimonial-profile-name">{testimonial.name}</p>
+              </div>
+              <p className="testimonial-desc">{testimonial.desc}</p>
             </div>
-        </div>
+          );
+        })}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

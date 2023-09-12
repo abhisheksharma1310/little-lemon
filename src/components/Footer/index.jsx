@@ -1,19 +1,40 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+import { loginStatus } from "../../reducers/userReducer";
+import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 import "./styles.css";
 
 const Footer = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const handleUserStatus = () => {
+    if (user?.isLogin) {
+      dispatch(loginStatus(false));
+      toast.success("Logout successfull!");
+      navigate("/login");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div>
+      <div>
+        <Toaster />
+      </div>
       <footer>
-        <div className="footer-email">
+        {/* <div className="footer-email">
           <p>Subscribe to Little Lemon</p>
           <hr />
           <div className="email-container">
             <input type="text" placeholder="Email Address" />
-            {/* <img src={ArrowRight} alt={ArrowRight} /> */}
             <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
           </div>
           <div id="email-sub">
@@ -25,17 +46,54 @@ const Footer = () => {
               </span>
             </label>
           </div>
-        </div>
+        </div> */}
 
         <div className="footer-orders">
           <p>Doormat Navigation</p>
           <hr />
-          <a href="/">Home </a>
-          <a href="/about">About </a>
-          <a href="/menu">Menu </a>
-          <a href="/reservations">Reservations </a>
-          <a href="/">Order Online</a>
-          <a href="/">Login</a>
+          <p
+            className="link"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Home{" "}
+          </p>
+          <p
+            className="link"
+            onClick={() => {
+              navigate("/about");
+            }}
+          >
+            About{" "}
+          </p>
+          <p
+            className="link"
+            onClick={() => {
+              navigate("/menu");
+            }}
+          >
+            Menu{" "}
+          </p>
+          <p
+            className="link"
+            onClick={() => {
+              navigate("/reservation");
+            }}
+          >
+            Reservations{" "}
+          </p>
+          <p
+            className="link"
+            onClick={() => {
+              navigate("/order");
+            }}
+          >
+            Order Online
+          </p>
+          <p className="link" onClick={handleUserStatus}>
+            {user.isLogin ? "Logout" : "Login"}
+          </p>
         </div>
 
         <div className="footer-about">
@@ -49,10 +107,10 @@ const Footer = () => {
         <div className="footer-orders">
           <p>Social media links</p>
           <hr />
-          <a href="/">Facebook </a>
-          <a href="/">Twitter </a>
-          <a href="/">Instagram </a>
-          <a href="/">Linkedin </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">Linkedin </a>
         </div>
       </footer>
       <div className="footer-c">
