@@ -2,7 +2,6 @@ import React from "react";
 import testimonialsData from "../../assets/data/testimonials";
 
 import "./styles.css";
-import testimonials from "../../assets/data/testimonials";
 
 const Testimonials = () => {
   const str = "⭐";

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.082520d4.css",
+    "main.js": "/static/js/main.8d079c40.js",
+    "static/js/787.a2f6b77c.chunk.js": "/static/js/787.a2f6b77c.chunk.js",
+    "static/media/restaurant.jpg": "/static/media/restaurant.3bc2c3c7493f85d14903.jpg",
+    "static/media/greek-salad.jpg": "/static/media/greek-salad.18ff7991b1c6f530137d.jpg",
+    "static/media/bruchetta1.jpg": "/static/media/bruchetta1.848a276a9d5945f3608c.jpg",
+    "static/media/restaurant-food.jpg": "/static/media/restaurant-food.6baa3bbe0b50415f52ae.jpg",
+    "static/media/logo.png": "/static/media/logo.b8445110e4e49b6b30a0.png",
+    "index.html": "/index.html",
+    "main.082520d4.css.map": "/static/css/main.082520d4.css.map",
+    "main.8d079c40.js.map": "/static/js/main.8d079c40.js.map",
+    "787.a2f6b77c.chunk.js.map": "/static/js/787.a2f6b77c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.082520d4.css",
+    "static/js/main.8d079c40.js"
+  ]
+}
