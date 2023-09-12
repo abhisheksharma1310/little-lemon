@@ -1,10 +1,16 @@
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import rootReducer from "./reducers";
+import { localStorageMiddleware } from "./localStorageMiddleware";
 
-import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./reducers"; // Import your reducers here
+const initialState = JSON.parse(localStorage.getItem("reduxState")) || {};
 
 const store = configureStore({
   reducer: rootReducer,
-  // Additional middleware and options can be configured here
+  preloadedState: initialState,
+  middleware: [
+    ...getDefaultMiddleware(), // Include other middlewares here if needed
+    localStorageMiddleware,
+  ],
 });
 
 export default store;
