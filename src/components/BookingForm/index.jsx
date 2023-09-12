@@ -14,7 +14,15 @@ import "./styles.css";
 
 const schema = yup
   .object({
-    date: yup.string().required(),
+    date: yup
+      .string()
+      .required()
+      .test("is-future-date", "Date must be in the future", (value) => {
+        if (!value) return true;
+        const selectedDate = new Date(value);
+        const currentDate = new Date();
+        return selectedDate > currentDate;
+      }),
     time: yup.number().positive().integer().required(),
     guest: yup.number().positive().integer().min(1).max(10).required(),
     occasion: yup.string().required(),
