@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
+import MenuItems from "../../assets/data/menu";
 
 import "./styles.css";
 
@@ -73,13 +74,71 @@ const OrderItems = ({ order }) => {
         </div>
       </div>
       <div className="history-item-detail">
-        {showProduct && <div>Product</div>}
-        {showBill && <div>Bill</div>}
+        {showProduct && <OrderProduct order={order} />}
+        {showBill && <OrderBill order={order} />}
       </div>
     </div>
   );
 };
 
+const OrderBill = ({ order }) => {
+  return (
+    <div>
+      <h4>Bill Summary</h4>
+      <div className="history-item">
+        <p>Address</p>
+        <p className="lm">{order?.address}</p>
+        <p>Price</p>
+        <p className="lm">$ {order?.price}</p>
+        <p>Items</p>
+        <p className="lm">$ {order?.items}</p>
+        <p>Delivery</p>
+        <p className="lm">$ {order?.delivery}</p>
+        <p>Total</p>
+        <p className="lm">$ {order?.total}</p>
+        <p>Discount</p>
+        <p className="lm">$ {order?.discount}</p>
+        <p>Order Total</p>
+        <p className="lm">$ {order?.orderTotal}</p>
+      </div>
+    </div>
+  );
+};
 
+const OrderProduct = ({ order }) => {
+  const getProducts = useMemo(() => {
+    const product = order.product?.map((product) => {
+      const detail = MenuItems.find((item) => item.id === product.id);
+      return { ...detail, qty: product.qty };
+    });
+    return product;
+  }, [order]);
+
+  console.log("p:: ", getProducts);
+
+  return (
+    <div>
+      <h4>Products</h4>
+      <div className="product-container">
+        {getProducts?.map((product) => {
+          return (
+            <div className="product">
+              <img
+                src={product?.img}
+                alt={product?.title}
+                className="product-img"
+              />
+              <div className="product-details">
+                <p>{product?.title}</p>
+                <p>Qty {product?.qty}</p>
+                <p>$ {product?.price}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export default OrderHistory;
