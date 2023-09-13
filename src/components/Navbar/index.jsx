@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import logo from "../../assets/img/logo.png";
+import logo from "../../assets/img/logo.jpg";
 import "./styles.css";
 
 const Navbar = () => {
