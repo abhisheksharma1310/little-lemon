@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginStatus } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import logo from "../../assets/img/logo.png";
 import "./styles.css";
@@ -12,6 +14,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  const [humburgur, setHumburger] = useState(false);
 
   const handleUserStatus = () => {
     if (user?.isLogin) {
@@ -23,14 +27,24 @@ const Navbar = () => {
     }
   };
 
+  const handleHumburger = () => {
+    setHumburger((p) => !p);
+  };
+
+  const navClass = humburgur ? "nav-link nav-m" : "nav-link";
+
   return (
     <nav className="main-nav">
       <div className="nav-logo">
         <img src={logo} alt="nav-logo-img" className="nav-logo-img" />
         <h1 className="nav-logo-title">LITTLE LEMON</h1>
+
+        <div className="nav-humburgur" onClick={handleHumburger}>
+          <FontAwesomeIcon icon={ humburgur ? faXmark : faBars} />
+        </div>
       </div>
 
-      <ul className="nav-link">
+      <ul className={navClass} onClick={handleHumburger}>
         <div>
           <Toaster />
         </div>
@@ -85,8 +99,6 @@ const Navbar = () => {
           </button>
         </li>
       </ul>
-
-      <div className="nav-link-m">Nav</div>
     </nav>
   );
 };

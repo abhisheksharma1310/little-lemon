@@ -38,20 +38,33 @@
     padding: 2vmax 8vmax;
 }
 
-.nav-link-m{
+.nav-humburgur{
     display: none;
     color: #333333;
     font-weight: 700;
 }
 
 @media (max-width: 720px){
-    .nav-link-m{
+    .nav-humburgur{
         display: block;
+        position: absolute;
+        right: 1em;
+        cursor: pointer;
     }
     .nav-link {
         display: none;
+        font-size:2em;
+        padding: 0 .5em;
+    }
+    .nav-m {
+        display: inline;
+    }
+    .nav-link button {
+        font-size: .6em;
     }
     .main-nav {
+        grid-template-areas: 'nav-logo' 'nav-link';
+        gap: .5em;
         padding: 2vmax;
     }
 }
