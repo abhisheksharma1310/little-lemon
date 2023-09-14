@@ -18,13 +18,21 @@
     
 }
 
-.nav-link button {
+.menu-link {
     text-decoration: none;
     color: #333333;
-    font-weight: 700;
+    font-size: 1em;
+    font-weight: 500;
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.active {
+    background-color: #495e57;
+    padding: .2em .5em;
+    color: #fff;
+    border-radius: .5em;
 }
 
 .nav-logo-img {
@@ -59,7 +67,7 @@
     .nav-m {
         display: inline;
     }
-    .nav-link button {
+    .menu-link {
         font-size: .6em;
     }
     .main-nav {

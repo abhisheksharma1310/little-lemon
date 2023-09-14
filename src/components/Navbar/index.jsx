@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { loginStatus } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import logo from "../../assets/img/logo.jpg";
 import "./styles.css";
@@ -13,7 +13,12 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const path = location.pathname;
+
+  const linkClass = (val) =>
+    val === path.split("/")[1] ? "menu-link active" : "menu-link";
 
   const [humburgur, setHumburger] = useState(false);
 
@@ -21,9 +26,6 @@ const Navbar = () => {
     if (user?.isLogin) {
       dispatch(loginStatus(false));
       toast.success("Logout successfull!");
-      navigate("/login");
-    } else {
-      navigate("/login");
     }
   };
 
@@ -40,7 +42,7 @@ const Navbar = () => {
         <h1 className="nav-logo-title">LITTLE LEMON</h1>
 
         <div className="nav-humburgur" onClick={handleHumburger}>
-          <FontAwesomeIcon icon={ humburgur ? faXmark : faBars} />
+          <FontAwesomeIcon icon={humburgur ? faXmark : faBars} />
         </div>
       </div>
 
@@ -49,54 +51,38 @@ const Navbar = () => {
           <Toaster />
         </div>
         <li>
-          <button
-            onClick={() => {
-              navigate("/");
-            }}
-          >
+          <Link to="/" className={linkClass("")}>
             Home
-          </button>
+          </Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              navigate("/about");
-            }}
-          >
+          <Link to="/about" className={linkClass("about")}>
             About
-          </button>
+          </Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              navigate("/menu");
-            }}
-          >
+          <Link to="/menu" className={linkClass("menu")}>
             Menu
-          </button>
+          </Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              navigate("/reservation");
-            }}
-          >
+          <Link to="/reservation" className={linkClass("reservation")}>
             Reservations
-          </button>
+          </Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              navigate("/order");
-            }}
-          >
+          <Link to="/order" className={linkClass("order")}>
             Order Online
-          </button>
+          </Link>
         </li>
         <li>
-          <button onClick={handleUserStatus}>
+          <Link
+            to="/login"
+            onClick={handleUserStatus}
+            className={linkClass("login")}
+          >
             {user.isLogin ? "Logout" : "Login"}
-          </button>
+          </Link>
         </li>
       </ul>
     </nav>
