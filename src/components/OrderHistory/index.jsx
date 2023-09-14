@@ -25,29 +25,15 @@ const OrderHistory = () => {
 };
 
 const OrderItems = ({ order }) => {
-  const [showProduct, setShowProduct] = useState(false);
-  const [showBill, setShowBill] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [show, setShow] = useState(false);
 
-  const handleMouse = () => {
-    setShowButton((p) => !p);
-  };
-
-  const handleProduct = () => {
-    setShowProduct((p) => !p);
-  };
-
-  const handleBill = () => {
-    setShowBill((p) => !p);
+  const handleButton = () => {
+    setShow((p) => !p);
   };
 
   return (
     <div className="history-details">
-      <div
-        className="history-item"
-        onMouseEnter={handleMouse}
-        onMouseLeave={handleMouse}
-      >
+      <div className="history-item">
         <p>Id</p>
         <p className="lm">{order?.id}</p>
         <p>Qty</p>
@@ -58,24 +44,15 @@ const OrderItems = ({ order }) => {
         <p className="lm">$ {order?.orderTotal}</p>
         <p>Time</p>
         <p className="lm">{order?.time}</p>
-        <div className="history-btn">
-          {showButton && (
-            <button className="btn-primary" onClick={handleProduct}>
-              products detail
-            </button>
-          )}
-        </div>
-        <div className="history-btn">
-          {showButton && (
-            <button className="btn-primary" onClick={handleBill}>
-              Billing Detail
-            </button>
-          )}
-        </div>
       </div>
       <div className="history-item-detail">
-        {showProduct && <OrderProduct order={order} />}
-        {showBill && <OrderBill order={order} />}
+        <div className="detail-btn">
+          <button className="btn-primary" onClick={handleButton}>
+            Details
+          </button>
+        </div>
+        {show && <OrderProduct order={order} />}
+        {show && <OrderBill order={order} />}
       </div>
     </div>
   );

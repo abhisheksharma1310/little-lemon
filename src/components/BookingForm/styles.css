@@ -1,10 +1,12 @@
 .booking-section {
   width: 100vw;
+  background-color: #495e57;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1vmax 8vmax;
+  padding: 2vmax 8vmax;
 }
 
 .booking-section h2 {
