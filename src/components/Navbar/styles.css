@@ -30,7 +30,7 @@
 
 .active {
     background-color: #495e57;
-    padding: .2em .5em;
+    padding: .2em .5em .3em;
     color: #fff;
     border-radius: .5em;
 }
