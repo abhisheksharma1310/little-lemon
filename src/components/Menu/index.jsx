@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import MenuItems from "../../assets/data/menu";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,13 +10,22 @@ import "./styles.css";
 const msg = `Item added to cart.`;
 const qty = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const Menu = () => {
+const pageLength = MenuItems.length;
+const noOfPages = Math.round(pageLength / 6);
+let pages = [];
+for (let i = 0; i <= noOfPages; i++) {
+  pages[i] = i + 1;
+}
+
+const Menu = ({ menuPage = false }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
   const cartList = useSelector((state) => state.cart);
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getMenuItems = useMemo(() => {
     const items = MenuItems.map((item) => {
@@ -26,6 +35,11 @@ const Menu = () => {
 
     return items;
   }, [cartList]);
+
+  const maxItem = 6;
+  const ItemsList = menuPage
+    ? getMenuItems.slice(maxItem*(currentPage-1), maxItem*currentPage)
+    : getMenuItems.slice(0, 3);
 
   const addItemToCart = (id) => {
     if (user?.isLogin) {
@@ -87,6 +101,57 @@ const Menu = () => {
     );
   };
 
+  const PageNavigate = () => {
+    const prevBtn =
+      currentPage === 1 ? "nav-btn disable-btn" : "nav-btn active-btn";
+    const pageBtn = (v) =>
+      currentPage === v ? "nav-btn active-btn-page" : "nav-btn active-btn";
+    const nextBtn =
+      currentPage === pages.length
+        ? "nav-btn disable-btn"
+        : "nav-btn active-btn";
+
+    const handlePrev = () => {
+      if (currentPage > 1 && currentPage <= pages.length) {
+        setCurrentPage((p) => (p -= 1));
+      }
+    };
+
+    const handleNext = () => {
+      if (currentPage >= 1 && currentPage < pages.length) {
+        setCurrentPage((p) => (p += 1));
+      }
+    };
+
+    const handlePage = (page) => {
+      setCurrentPage(page);
+    };
+
+    console.log(currentPage);
+
+    return (
+      <div className="page-navigate">
+        <button className={prevBtn} onClick={handlePrev}>
+          Prev
+        </button>
+        {pages.map((page) => (
+          <button
+            key={page}
+            className={pageBtn(page)}
+            onClick={() => {
+              handlePage(page);
+            }}
+          >
+            {page}
+          </button>
+        ))}
+        <button className={nextBtn} onClick={handleNext}>
+          Next
+        </button>
+      </div>
+    );
+  };
+
   return (
     <section className="menu-section">
       <div>
@@ -103,7 +168,7 @@ const Menu = () => {
         </button>
       </header>
       <div className="menu-items">
-        {getMenuItems?.map((item) => {
+        {ItemsList?.map((item) => {
           return (
             <div key={item?.id} className="menu-item">
               <img className="menu-item-img" src={item?.img} alt={item.title} />
@@ -119,6 +184,7 @@ const Menu = () => {
           );
         })}
       </div>
+      {menuPage && <PageNavigate />}
     </section>
   );
 };

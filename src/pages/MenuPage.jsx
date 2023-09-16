@@ -4,7 +4,7 @@ import Menu from '../components/Menu'
 const MenuPage = () => {
   return (
     <div>
-        <Menu/>
+        <Menu menuPage={true}/>
     </div>
   )
 }

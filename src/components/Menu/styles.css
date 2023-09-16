@@ -96,6 +96,37 @@
   padding: 1vmax 8vmax;
 }
 
+.page-navigate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+}
+
+.nav-btn, .nav-btn-page {
+  padding: .5em;
+  border: none;
+  background-color: transparent;
+  color: #495e57;
+}
+
+.active-btn {
+  background-color: #495e57;
+  cursor: pointer;
+  color: #fff;
+}
+
+.active-btn-page {
+  text-direction: underline;
+  cursor: not-allowed;
+}
+
+.disable-btn {
+  cursor: not-allowed;
+  background-color: none;
+}
+
+
 @media (max-width: 720px) {
   .menu-section {
     padding: 2vmax;
