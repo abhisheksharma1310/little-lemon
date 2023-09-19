@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { createUser, loginStatus } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ToastConfirm from "../Toasts/ToastConfirm";
 
 import "./styles.css";
 
@@ -30,7 +31,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(user.isLogin) navigate("/");
+    if (user.isLogin) navigate("/");
   }, [user?.isLogin, navigate]);
 
   const dispatch = useDispatch();
@@ -74,14 +75,43 @@ const Login = () => {
       dispatch(loginStatus(true));
       toast.success("Login successfull!");
       navigate("/");
-    } else if(user.details?.email === email && user.details?.password !== password) {
-      toast.error("Password not matched. Enter correct password.")
+    } else if (
+      user.details?.email === email &&
+      user.details?.password !== password
+    ) {
+      toast.error("Password not matched. Enter correct password.");
     } else {
       toast.error("Account not found for this email id.");
     }
   };
 
   const handleSignup = (data) => {
+    if (user.details?.email === data?.email) {
+      toast.error("Account allready exist for this email please login");
+      toggleLoginSignup();
+    } else if (user.details?.email !== data?.email) {
+      toast(
+        ToastConfirm(
+          "Are you sure to create new account, ",
+          "your privous account and all its data will be deleted.",
+          "This is because this app uses browser local storage as its primary storage.",
+          () => {
+            toggleLoginSignup();
+          },
+          () => {
+            localStorage.clear();
+            dispatch({ type: "CLEAR_DATA" });
+            handleCreateAccount(data);
+          }
+        ),
+        {
+          duration: 60000,
+        }
+      );
+    }
+  };
+
+  const handleCreateAccount = (data) => {
     dispatch(createUser(data));
     toast.success("Signup successfull!");
     dispatch(loginStatus(true));

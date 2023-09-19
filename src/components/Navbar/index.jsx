@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import ToastConfirm from "../Toasts/ToastConfirm";
 
 import logo from "../../assets/img/logo.jpg";
 import "./styles.css";
@@ -24,9 +25,28 @@ const Navbar = () => {
 
   const handleUserStatus = () => {
     if (user?.isLogin) {
-      dispatch(loginStatus(false));
-      toast.success("Logout successfull!");
+      handleLogout();
     }
+  };
+
+  const handleLogout = () => {
+    toast(
+      ToastConfirm(
+        "Are you sure to",
+        "logout",
+        "",
+        () => {
+          console.log("");
+        },
+        () => {
+          dispatch(loginStatus(false));
+          toast.success("Logout successfull!");
+        }
+      ),
+      {
+        duration: 60000,
+      }
+    );
   };
 
   const handleHumburger = () => {

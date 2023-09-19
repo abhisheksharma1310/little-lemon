@@ -4,6 +4,7 @@ import { addAddress, addToHistory } from "../../reducers/checkoutReducer";
 import { removeAllFromCart } from "../../reducers/cartReducer";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import ToastConfirm from "../Toasts/ToastConfirm";
 
 import "./styles.css";
 
@@ -51,41 +52,31 @@ const Checkout = () => {
 
   const handleCheckout = () => {
     if (newAddress.length > 30) {
+      setSuccess(false);
       processCheckout();
     } else {
+      setSuccess(false);
       toast.error("Enter valid address at least 30 char.");
     }
-    setSuccess(false);
   };
 
   const processCheckout = () => {
-    toast((t) => (
-      <div>
-        <div>
-          Are you sure to <b>procced</b>?
-        </div>
-        <div className="alert">
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-              setSuccess(true);
-            }}
-          >
-            No
-          </button>
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-              beginCheckout();
-            }}
-          >
-            Yes
-          </button>
-        </div>
-      </div>
-    ));
+    toast(
+      ToastConfirm(
+        "Are you sure to",
+        "procced",
+        "",
+        () => {
+          setSuccess(true);
+        },
+        () => {
+          beginCheckout();
+        }
+      ),
+      {
+        duration: 60000,
+      }
+    );
   };
 
   const beginCheckout = () => {
@@ -132,7 +123,7 @@ const Checkout = () => {
           </div>
           <div className="checkout-order-details">
             <p>Quantity</p>
-            <p className="lm">$ {order.qty}</p>
+            <p className="lm"> {order.qty}</p>
             <p>Items</p>
             <p className="lm">$ {order.items}</p>
             <p>Delivery</p>

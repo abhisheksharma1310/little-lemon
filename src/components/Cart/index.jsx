@@ -5,6 +5,7 @@ import { addOrder } from "../../reducers/checkoutReducer";
 import { useNavigate } from "react-router-dom";
 import menuItems from "../../assets/data/menu";
 import toast, { Toaster } from "react-hot-toast";
+import ToastConfirm from "../Toasts/ToastConfirm";
 
 import "./styles.css";
 
@@ -50,33 +51,23 @@ const Cart = () => {
   };
 
   const removeProduct = (id) => {
-    toast((t) => (
-      <div>
-        <div>
-          Are you sure to <b>remove</b> this item?
-        </div>
-        <div className="alert">
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-              dispatch(removeFromCart(id));
-              toast.success('Successfully item removed from cart.');
-            }}
-          >
-            Yes
-          </button>
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-            }}
-          >
-            No
-          </button>
-        </div>
-      </div>
-    ));
+    toast(
+      ToastConfirm(
+        "Are you sure to",
+        "remove",
+        "this item",
+        () => {
+          console.log("");
+        },
+        () => {
+          dispatch(removeFromCart(id));
+          toast.success("Successfully item removed from cart.");
+        }
+      ),
+      {
+        duration: 60000,
+      }
+    );
   };
 
   const placeOrder = () => {
