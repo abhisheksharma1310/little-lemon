@@ -126,6 +126,21 @@
   background-color: none;
 }
 
+.filter-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.filter-btn select {
+  width: 8em;
+  border: none;
+}
+
+.filter-btn select option {
+  background-color: #f4ce14;
+}
 
 @media (max-width: 720px) {
   .menu-section {

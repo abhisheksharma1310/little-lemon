@@ -26,6 +26,7 @@ const Menu = ({ menuPage = false }) => {
   const cartList = useSelector((state) => state.cart);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("name-d");
 
   const getMenuItems = useMemo(() => {
     const items = MenuItems.map((item) => {
@@ -36,10 +37,29 @@ const Menu = ({ menuPage = false }) => {
     return items;
   }, [cartList]);
 
+  const getSortedMenu = useMemo(() => {
+    if (sortBy === "auto") return getMenuItems;
+    let items = [...getMenuItems];
+    if (sortBy === "name-a")
+      items.sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
+    if (sortBy === "name-d")
+      items.sort((a, b) => {
+        if (a.title > b.title) return -1;
+        if (a.title < b.title) return 1;
+        return 0;
+      });
+
+    return items;
+  }, [getMenuItems, sortBy]);
+
   const maxItem = 6;
   const ItemsList = menuPage
-    ? getMenuItems.slice(maxItem*(currentPage-1), maxItem*currentPage)
-    : getMenuItems.slice(0, 3);
+    ? getSortedMenu?.slice(maxItem * (currentPage - 1), maxItem * currentPage)
+    : getSortedMenu?.slice(0, 3);
 
   const addItemToCart = (id) => {
     if (user?.isLogin) {
@@ -127,8 +147,6 @@ const Menu = ({ menuPage = false }) => {
       setCurrentPage(page);
     };
 
-    console.log(currentPage);
-
     return (
       <div className="page-navigate">
         <button className={prevBtn} onClick={handlePrev}>
@@ -152,6 +170,35 @@ const Menu = ({ menuPage = false }) => {
     );
   };
 
+  const FilterButtons = () => {
+    return (
+      <div className="filter-btn">
+        <div>
+          <label htmlFor="filterBy">FilterBy:</label>
+          <select name="filterBy" id="filterBy">
+            <option>Auto</option>
+            <option>FilterBy</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="SortBy">Sort By:</label>
+          <select
+            name="sortBy"
+            id="sortBy"
+            onClick={(e) => {
+              setSortBy(e.target.value);
+            }}
+            defaultValue={sortBy}
+          >
+            <option value="auto">Auto</option>
+            <option value="name-a">Name Asd</option>
+            <option value="name-d">Name Dsc</option>
+          </select>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section className="menu-section">
       <div>
@@ -159,13 +206,16 @@ const Menu = ({ menuPage = false }) => {
       </div>
       <header className="menu-header">
         <h2>This week specials!</h2>
-        <button
-          onClick={() => {
-            navigate("/menu");
-          }}
-        >
-          Online Menu
-        </button>
+        {!menuPage && (
+          <button
+            onClick={() => {
+              navigate("/menu");
+            }}
+          >
+            Online Menu
+          </button>
+        )}
+        {menuPage && <FilterButtons />}
       </header>
       <div className="menu-items">
         {ItemsList?.map((item) => {
