@@ -9,13 +9,7 @@ import "./styles.css";
 
 const msg = `Item added to cart.`;
 const qty = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-const pageLength = MenuItems.length;
-const noOfPages = Math.round(pageLength / 6);
-let pages = [];
-for (let i = 0; i <= noOfPages; i++) {
-  pages[i] = i + 1;
-}
+const menuType = ["Appetizers", "Main", "Deserts", "Soups", "Salad"];
 
 const Menu = ({ menuPage = false }) => {
   const navigate = useNavigate();
@@ -26,8 +20,10 @@ const Menu = ({ menuPage = false }) => {
   const cartList = useSelector((state) => state.cart);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortBy, setSortBy] = useState("name-d");
+  const [sortBy, setSortBy] = useState("auto");
+  const [filterBy, setFilterBy] = useState("auto");
 
+  //map menu items with cart menu items
   const getMenuItems = useMemo(() => {
     const items = MenuItems.map((item) => {
       const cartItem = cartList.find((cart) => cart.id === item.id);
@@ -37,6 +33,7 @@ const Menu = ({ menuPage = false }) => {
     return items;
   }, [cartList]);
 
+  //Sort menu items
   const getSortedMenu = useMemo(() => {
     if (sortBy === "auto") return getMenuItems;
     let items = [...getMenuItems];
@@ -56,11 +53,33 @@ const Menu = ({ menuPage = false }) => {
     return items;
   }, [getMenuItems, sortBy]);
 
+  //Filter menu Items
+  const getFilteredMenu = useMemo(() => {
+    if (filterBy === "auto") return getSortedMenu;
+    let items = [...getSortedMenu];
+    items = items?.filter((item) => item?.type === filterBy);
+
+    return items;
+  }, [filterBy, getSortedMenu]);
+
+  //Count number page for page navigation
+  const pages = useMemo(() => {
+    const pageLength = getFilteredMenu.length;
+    const noOfPages = Math.floor(pageLength / 6);
+    let pages = [];
+    for (let i = 0; i <= noOfPages; i++) {
+      pages[i] = i + 1;
+    }
+    return pages;
+  }, [getFilteredMenu]);
+
+  //Show items per page as required
   const maxItem = 6;
   const ItemsList = menuPage
-    ? getSortedMenu?.slice(maxItem * (currentPage - 1), maxItem * currentPage)
-    : getSortedMenu?.slice(0, 3);
+    ? getFilteredMenu?.slice(maxItem * (currentPage - 1), maxItem * currentPage)
+    : getFilteredMenu?.slice(0, 3);
 
+  //Add item to cart
   const addItemToCart = (id) => {
     if (user?.isLogin) {
       dispatch(addToCart({ id: id, qty: 1 }));
@@ -70,11 +89,13 @@ const Menu = ({ menuPage = false }) => {
     }
   };
 
+  //Set quantity of item
   const setQty = (event, id) => {
     const { value } = event.target;
     dispatch(updateCart({ id: id, qty: Number(value) }));
   };
 
+  //Items menu button component
   const MenuBottom = ({ item }) => {
     return (
       <div className="menu-bottom">
@@ -121,24 +142,25 @@ const Menu = ({ menuPage = false }) => {
     );
   };
 
+  //Page navigate component
   const PageNavigate = () => {
     const prevBtn =
       currentPage === 1 ? "nav-btn disable-btn" : "nav-btn active-btn";
     const pageBtn = (v) =>
       currentPage === v ? "nav-btn active-btn-page" : "nav-btn active-btn";
     const nextBtn =
-      currentPage === pages.length
+      currentPage === pages?.length
         ? "nav-btn disable-btn"
         : "nav-btn active-btn";
 
     const handlePrev = () => {
-      if (currentPage > 1 && currentPage <= pages.length) {
+      if (currentPage > 1 && currentPage <= pages?.length) {
         setCurrentPage((p) => (p -= 1));
       }
     };
 
     const handleNext = () => {
-      if (currentPage >= 1 && currentPage < pages.length) {
+      if (currentPage >= 1 && currentPage < pages?.length) {
         setCurrentPage((p) => (p += 1));
       }
     };
@@ -152,7 +174,7 @@ const Menu = ({ menuPage = false }) => {
         <button className={prevBtn} onClick={handlePrev}>
           Prev
         </button>
-        {pages.map((page) => (
+        {pages?.map((page) => (
           <button
             key={page}
             className={pageBtn(page)}
@@ -170,14 +192,26 @@ const Menu = ({ menuPage = false }) => {
     );
   };
 
+  //Component for Filter and Sorting menu items
   const FilterButtons = () => {
     return (
       <div className="filter-btn">
         <div>
           <label htmlFor="filterBy">FilterBy:</label>
-          <select name="filterBy" id="filterBy">
-            <option>Auto</option>
-            <option>FilterBy</option>
+          <select
+            name="filterBy"
+            id="filterBy"
+            onChange={(e) => {
+              setFilterBy(e.target.value);
+            }}
+            defaultValue={filterBy}
+          >
+            <option value="auto">Auto</option>
+            {menuType.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -185,7 +219,7 @@ const Menu = ({ menuPage = false }) => {
           <select
             name="sortBy"
             id="sortBy"
-            onClick={(e) => {
+            onChange={(e) => {
               setSortBy(e.target.value);
             }}
             defaultValue={sortBy}
@@ -199,6 +233,7 @@ const Menu = ({ menuPage = false }) => {
     );
   };
 
+  //return main menu items component
   return (
     <section className="menu-section">
       <div>

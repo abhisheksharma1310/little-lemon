@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .menu-header h2 {
@@ -146,8 +147,17 @@
   .menu-section {
     padding: 2vmax;
   }
+  .menu-header {
+    padding:  0 1em;
+  }
   .menu-header h2 {
     font-size: 2em;
+  }
+  .filter-btn div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5em;
   }
   .menu-items {
     justify-content: center;

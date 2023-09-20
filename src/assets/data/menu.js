@@ -19,6 +19,7 @@ const menuItems = [
         img: Salad,
         title: "Greek salad",
         price: 12.99,
+        type: "Salad",
         desc: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
         id: "100"
     },
@@ -26,6 +27,7 @@ const menuItems = [
         img: Bruschetta,
         title: "Bruschetta",
         price: 5.99,
+        type: "Appetizers",
         desc: "Our Bruschetta is made from grilled that has been smeared with garlic and seasoned with salt and olive oil.",
         id: "101"
     },
@@ -33,6 +35,7 @@ const menuItems = [
         img: Lemon,
         title: "Lemon Dessert",
         price: 5.00,
+        type: "Deserts",
         desc: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
         id: "102"
     },
@@ -40,6 +43,7 @@ const menuItems = [
         img: Calamari,
         title: "Calamari",
         price: 12.99,
+        type: "Appetizers",
         desc: "Tender calamari lightly breaded and fried, served with our own lemon-butter garlic sauce for dipping.",
         id: "103"
     },
@@ -47,6 +51,7 @@ const menuItems = [
         img: Avgolemono,
         title: "Avgolemono",
         price: 10.00,
+        type: "Soups",
         desc: "A creamy broth of chicken and rice with a hint of lemon. A Greek classic!",
         id: "104"
     },
@@ -54,6 +59,7 @@ const menuItems = [
         img: Saganaki,
         title: "Saganaki",
         price: 5.00,
+        type: "Appetizers",
         desc: "A mild Greek cheese that leaves our kitchen sizzling and flamed at your table with a shout of 'OPA!' Served with pita bread.",
         id: "105"
     },
@@ -61,6 +67,7 @@ const menuItems = [
         img: Lentil,
         title: "Lentil",
         price: 10.00,
+        type: "Soups",
         desc: "Traditional lentil bean soup enriched with fresh tomato sauce and whole garlic olives.",
         id: "106"
     },
@@ -68,6 +75,7 @@ const menuItems = [
         img: Spanakopita,
         title: "Spanakopita",
         price: 5.00,
+        type: "Appetizers",
         desc: "Crispy phyllo, stuffed with satuéed spinach and Feta cheese.",
         id: "107"
     },
@@ -75,6 +83,7 @@ const menuItems = [
         img: ChickenSouvlaki,
         title: "Chicken Souvlaki Platter",
         price: 12.99,
+        type: "Main",
         desc: "Medallions of chicken breast marinated in Greek olive oil and seasonings, skewered and broiled to perfection served with tzatziki.",
         id: "108"
     },
@@ -82,6 +91,7 @@ const menuItems = [
         img: Galaktobouriko,
         title: "Galaktobouriko",
         price: 5.00,
+        type: "Deserts",
         desc: "A phyllo wrapped custard perfectly baked and topped with a light honey syrup! Served warm.",
         id: "109"
     },
@@ -89,6 +99,7 @@ const menuItems = [
         img: LambChops,
         title: "Lamb Chops",
         price: 10.00,
+        type: "Main",
         desc: "Our perfectly seasoned Lamb Chops, flame broiled to your liking.",
         id: "110"
     },
@@ -96,6 +107,7 @@ const menuItems = [
         img: Sokolatina,
         title: "Sokolatina",
         price: 5.00,
+        type: "Deserts",
         desc: "Layers of feather light chocolate cake and chocolate whipped cream topped with dark chocolate ganache.",
         id: "111"
     },
@@ -103,6 +115,7 @@ const menuItems = [
         img: Moussaka,
         title: "Moussaka",
         price: 10.00,
+        type: "Main",
         desc: "A layered casserole of potatoes, roasted eggplant, topped with bechamel sauce and oven baked.",
         id: "112"
     },
@@ -110,6 +123,7 @@ const menuItems = [
         img: Baklava,
         title: "Baklava",
         price: 12.99,
+        type: "Deserts",
         desc: "Traditional Greek baklava consists of layers of thin crisp phyllo, chopped walnuts and cinnamon topped with honey syrup.",
         id: "113"
     },
