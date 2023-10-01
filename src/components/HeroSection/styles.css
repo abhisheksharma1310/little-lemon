@@ -6,7 +6,7 @@
 .hero-section {
   width: 100vw;
   height: 22em;
-  background-color: #495e57;
+  background-color: var(--primary-color-varient);
 }
 
 .hero-img img {
@@ -20,7 +20,7 @@
 .hero-content {
   grid-area: hero-content;
   width: 40em;
-  color: #fff;
+  color: var(--primary-color-white);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,7 +29,7 @@
 }
 
 .hero-content h1 {
-  color: #f4ce14;
+  color: var(--primary-color);
   font-size: 3em;
 }
 .hero-content h2 {
@@ -37,7 +37,7 @@
 }
 
 .hero-content p {
-  color: #fff;
+  color: var(--primary-color-white);
   font-family: Karla;
   font-size: 2em;
   font-style: normal;
@@ -52,7 +52,7 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: .5em;
-  background: #f4ce14;
+  background: var(--primary-color);
   cursor: pointer;
 }
 

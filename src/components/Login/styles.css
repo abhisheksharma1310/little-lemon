@@ -8,7 +8,7 @@
 }
 
 .login-section h2 {
-  color: #f4ce14;
+  color: var(--primary-color);
   text-align: center;
   font-size: 2em;
 }
@@ -34,13 +34,13 @@
 .login-form input[type="submit"] {
     margin: 1em 0;
     cursor: pointer;
-    background-color: #333333;
-    color: #fff;
+    background-color: var(--secondary-color-black);
+    color: var(--primary-color-white);
     border-radius: .3em;
 }
 
 .login-form input[type="submit"]:hover {
-    background-color: #666666;
+    background-color: var(--secondary-color-gray);
 }
 
 .err {

@@ -1,3 +1,15 @@
+:root {
+  --primary-color: #f4ce14;
+  --primary-color-varient: #495e57;
+  --primary-color-black: #000000;
+  --primary-color-white: #fff;
+  --secondary-color-black: #333333;
+  --secondary-color-gray: #666666;
+  --secondary-color-varient-white: #fffef2;
+  --secondary-color-varient-white: #edefef;
+  --secondary-color-varient-red: #491111;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +36,7 @@
 }
 
 .page-header {
-  color:  #f4ce14;
+  color:  var(--primary-color);
   text-align: center;
   font-size: 2em;
 }
@@ -35,7 +47,7 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: .5em;
-  background: #f4ce14;
+  background: var(--primary-color);
   cursor: pointer;
 }
 

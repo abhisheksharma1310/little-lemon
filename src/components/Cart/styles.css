@@ -6,7 +6,7 @@
 
 .cart-container {
     padding: 1em;
-    background-color: #495e57;
+    background-color: var(--primary-color-varient);
     color: #fff;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .cart-details:hover {
-    background-color: #491111;
+    background-color: var(--secondary-color-varient-red);
 }
 
 .cart-img {
@@ -62,11 +62,11 @@
     color: red;
     border: none;
     cursor: pointer;
-    background-color: #f4ce14;
+    background-color: var(--primary-color);
 }
 
 .cart-btn-dl:hover {
-    background-color: #491111;
+    background-color: var(--secondary-color-varient-red);
 }
 
 .cart-sub-total {

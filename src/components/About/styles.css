@@ -8,7 +8,7 @@
 
 .about-content {
   width: 40em;
-  color: #333333;
+  color: var(--secondary-color-black);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -17,7 +17,7 @@
 }
 
 .about-content h1 {
-  color: #f4ce14;
+  color: var(--primary-color);
   font-size: 2.5em;
 }
 .about-content h2 {
@@ -25,7 +25,7 @@
 }
 
 .about-content p {
-  color: #333333;
+  color: var(--secondary-color-black);
   font-family: Karla;
   font-size: 1.5em;
   font-style: normal;

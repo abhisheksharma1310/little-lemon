@@ -1,6 +1,6 @@
 .booking-section {
   width: 100vw;
-  background-color: #495e57;
+  background-color: var(--primary-color-varient);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 .booking-section h2 {
-  color:  #f4ce14;
+  color:  var(--primary-color);
   text-align: center;
   font-size: 2em;
 }
@@ -35,13 +35,13 @@
 .booking-form input[type="submit"] {
     margin: 1em 0;
     cursor: pointer;
-    background-color: #333333;
+    background-color: var(--secondary-color-black);
     color: #fff;
     border-radius: .3em;
 }
 
 .booking-form input[type="submit"]:hover {
-    background-color: #666666;
+    background-color: var(--secondary-color-gray);
 }
 
 .err {

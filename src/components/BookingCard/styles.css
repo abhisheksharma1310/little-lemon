@@ -10,7 +10,7 @@
 }
 
 .booking-card {
-  background-color: #495e57;
+  background-color: var(--primary-color-varient);
   padding: 1em;
   border: 0.1em solid #fff;
   border-radius: 0.5em;
@@ -18,7 +18,7 @@
 }
 
 .booking-card:hover {
-  background-color: #491111;
+  background-color: var(--secondary-color-varient-red);
 }
 
 .booking-detail {

@@ -1,20 +1,20 @@
 
 footer {
   width: 100vw;
-  background-color: #333333;
+  background-color: var(--secondary-color-black);
   padding: 2vmax 8vmax;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 50px;
   column-gap: 50px;
-  color: #fffef2;
+  color: var(--secondary-color-varient-white);
   margin-top: 2em;
 }
 
 footer a {
   display: block;
   padding: 4px;
-  color: #fffef2;
+  color: var(--secondary-color-varient-white);
   text-decoration: none;
 }
 
@@ -31,7 +31,7 @@ footer hr {
 }
 
 .email-container {
-  border: 1px solid #fffef2;
+  border: 1px solid var(--secondary-color-varient-white);
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -40,11 +40,11 @@ footer hr {
 
 .email-container > input {
   width: 95%;
-  background-color: #333333;
+  background-color: var(--secondary-color-black);
   border: none;
   outline: none;
   padding: 5px;
-  color: #fffef2;
+  color: var(--secondary-color-varient-white);
   font-size: 16px;
   font-weight: 600;
 }
@@ -63,8 +63,8 @@ footer hr {
 }
 
 .footer-c {
-  background-color: #333333;
-  color: #fffef2;
+  background-color: var(--secondary-color-black);
+  color: var(--secondary-color-varient-white);
   height: 80px;
   width: 100vw;
 }

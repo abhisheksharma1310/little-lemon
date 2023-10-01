@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     gap: 1vmax;
-    color: #333333;
+    color: var(--secondary-color-black);
     letter-spacing: .1vmax;
 }
 
@@ -20,7 +20,7 @@
 
 .menu-link {
     text-decoration: none;
-    color: #333333;
+    color: var(--secondary-color-black);
     font-size: 1em;
     font-weight: 500;
     background-color: transparent;
@@ -29,9 +29,9 @@
 }
 
 .active {
-    background-color: #495e57;
+    background-color: var(--primary-color-varient);
     padding: .2em .5em .3em;
-    color: #fff;
+    color: var(--primary-color-white);
     border-radius: .5em;
 }
 
@@ -48,7 +48,7 @@
 
 .nav-humburgur{
     display: none;
-    color: #333333;
+    color: var(--secondary-color-black);
     font-weight: 700;
 }
 

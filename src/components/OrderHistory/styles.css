@@ -5,8 +5,8 @@
 
 .history-container {
   padding: 1em;
-  background-color: #495e57;
-  color: #fff;
+  background-color: var(--primary-color-varient);
+  color: var(--primary-color-white);
 }
 
 .history-heading {
@@ -39,7 +39,7 @@
 }
 
 .history-details:hover {
-  background-color: #491111;
+  background-color: var(--secondary-color-varient-red);
 }
 
 .history-btn {

@@ -15,7 +15,7 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: 0.5em;
-  background: #f4ce14;
+  background: var(--primary-color);
   cursor: pointer;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .menu-item-price {
-  color: #f4ce14;
+  color: var(--primary-color);
   font-weight: 700;
 }
 
@@ -79,7 +79,7 @@
   flex-direction: column;
   gap: 0.5em;
   width: 20em;
-  background-color: #edefef;
+  background-color: var(--secondary-color-varient-white);
   border-radius: 0.5em;
 }
 
@@ -108,13 +108,13 @@
   padding: .5em;
   border: none;
   background-color: transparent;
-  color: #495e57;
+  color: var(--primary-color-varient);
 }
 
 .active-btn {
-  background-color: #495e57;
+  background-color: var(--primary-color-varient);
   cursor: pointer;
-  color: #fff;
+  color: var(--primary-color-white);
 }
 
 .active-btn-page {
@@ -140,7 +140,7 @@
 }
 
 .filter-btn select option {
-  background-color: #f4ce14;
+  background-color: var(--primary-color);
 }
 
 @media (max-width: 720px) {
