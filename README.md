@@ -1,5 +1,11 @@
 # Little Lemon Restaurant's Online Table Reservation and Online Food Order Web App
 
+<img src="https://i.ibb.co/R3sYZKR/little-lemon-mockup-nobg.png" alt="little-lemon-mockup-nobg" width="95%" border="0">
+
+<p align="center">
+    <a href="https://main--adorable-salmiakki-6c71a9.netlify.app/" target="_blank">Click here for live demo 👆</a>
+</p>
+
 Welcome to the Little Lemon Restaurant Online Table Reservation and Online Food Order Web App. This project serves as the capstone project for the Meta Front End Development course and has been developed using cutting-edge technologies including React, Redux Toolkit, React-Router-DOM, and Browser Local Storage API. This README file provides an overview of the project, its features, how to deploy and use it, and instructions for running the project locally.
 
 ## Description
