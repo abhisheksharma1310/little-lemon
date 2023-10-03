@@ -17,7 +17,8 @@ const Footer = () => {
   const handleUserStatus = () => {
     if (user?.isLogin) {
       dispatch(loginStatus(false));
-      toast.success("Logout successfull!");
+      const tid = toast.success("Logout successfull!");
+      setTimeout(() => toast.dismiss(tid), 1000);
       navigate("/login");
     } else {
       navigate("/login");

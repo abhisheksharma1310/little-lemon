@@ -40,13 +40,20 @@ const Navbar = () => {
         },
         () => {
           dispatch(loginStatus(false));
-          toast.success("Logout successfull!");
+          logoutInfo();
         }
       ),
       {
         duration: 60000,
       }
     );
+  };
+
+  const logoutInfo = () => {
+    const tid = toast.success("Logout successfull");
+    setTimeout(() => {
+      toast.dismiss(tid);
+    }, 1000);
   };
 
   const handleHumburger = () => {
@@ -56,56 +63,58 @@ const Navbar = () => {
   const navClass = humburgur ? "nav-link nav-m" : "nav-link";
 
   return (
-    <nav className="main-nav">
-      <div className="nav-logo">
-        <img src={logo} alt="nav-logo-img" className="nav-logo-img" />
-        <h1 className="nav-logo-title">LITTLE LEMON</h1>
-
-        <div className="nav-humburgur" onClick={handleHumburger}>
-          <FontAwesomeIcon icon={humburgur ? faXmark : faBars} />
-        </div>
+    <>
+      <div>
+        <Toaster />
       </div>
+      <nav className="main-nav">
+        <div className="nav-logo">
+          <img src={logo} alt="nav-logo-img" className="nav-logo-img" />
+          <h1 className="nav-logo-title">LITTLE LEMON</h1>
 
-      <ul className={navClass} onClick={handleHumburger}>
-        <div>
-          <Toaster />
+          <div className="nav-humburgur" onClick={handleHumburger}>
+            <FontAwesomeIcon icon={humburgur ? faXmark : faBars} />
+          </div>
         </div>
-        <li>
-          <Link to="/" className={linkClass("")}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className={linkClass("about")}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/menu" className={linkClass("menu")}>
-            Menu
-          </Link>
-        </li>
-        <li>
-          <Link to="/reservation" className={linkClass("reservation")}>
-            Reservations
-          </Link>
-        </li>
-        <li>
-          <Link to="/order" className={linkClass("order")}>
-            Order Online
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/login"
-            onClick={handleUserStatus}
-            className={linkClass("login")}
-          >
-            {user.isLogin ? "Logout" : "Login"}
-          </Link>
-        </li>
-      </ul>
-    </nav>
+
+        <ul className={navClass} onClick={handleHumburger}>
+          <li>
+            <Link to="/" className={linkClass("")}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className={linkClass("about")}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" className={linkClass("menu")}>
+              Menu
+            </Link>
+          </li>
+          <li>
+            <Link to="/reservation" className={linkClass("reservation")}>
+              Reservations
+            </Link>
+          </li>
+          <li>
+            <Link to="/order" className={linkClass("order")}>
+              Order Online
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              onClick={handleUserStatus}
+              className={linkClass("login")}
+            >
+              {user.isLogin ? "Logout" : "Login"}
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 

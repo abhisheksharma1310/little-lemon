@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteReservation } from "../../reducers/reservationReducer";
 import toast, { Toaster } from "react-hot-toast";
+import ToastConfirm from "../Toasts/ToastConfirm";
 
 import "./styles.css";
 
@@ -16,40 +17,31 @@ const BookingCard = ({ bookings }) => {
   const dispatch = useDispatch();
 
   const cancelBooking = (id) => {
-    toast((t) => (
-      <div>
-        <div>
-          Are you sure to <b>cancel</b> booking?
-        </div>
-        <div className="alert">
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-            }}
-          >
-            No
-          </button>
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-              toast.success('Successfully booking canceled.');
-              cancelConfirm(id);
-            }}
-          >
-            Yes
-          </button>
-        </div>
-      </div>
-    ));
+    toast(
+      ToastConfirm(
+        "Are you sure to",
+        "cancel",
+        "booking",
+        () => {
+          console.log("");
+        },
+        () => {
+          cancelConfirm(id);
+        }
+      ),
+      {
+        duration: 60000,
+      }
+    );
   };
 
   const cancelConfirm = (id) => {
+    const tid = toast.success("Successfully booking canceled.");
+    dispatch(deleteReservation(id));
     setTimeout(() => {
-      dispatch(deleteReservation(id));
+      toast.dismiss(tid);
     }, 1000);
-  }
+  };
 
   const Card = ({ booking }) => (
     <div className="booking-card">

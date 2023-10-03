@@ -60,8 +60,7 @@ const Cart = () => {
           console.log("");
         },
         () => {
-          dispatch(removeFromCart(id));
-          toast.success("Successfully item removed from cart.");
+          removeItem(id);
         }
       ),
       {
@@ -69,6 +68,14 @@ const Cart = () => {
       }
     );
   };
+
+  const removeItem = (id) => {
+    dispatch(removeFromCart(id));
+    const tid = toast.success("Successfully item removed from cart.");
+    setTimeout(() => {
+      toast.dismiss(tid);
+    }, 2000);
+  }
 
   const placeOrder = () => {
     const order = {

@@ -11,7 +11,8 @@ const ReservationPage = () => {
 
   useEffect(() => {
     if (!user?.isLogin) {
-      toast.error("You can not access this page. please login.");
+      const tid = toast.error("You can not access this page. please login.");
+      setTimeout(() => toast.dismiss(tid), 1000);
       navigate("/login");
     }
   }, [user?.isLogin, navigate]);

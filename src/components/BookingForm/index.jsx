@@ -66,11 +66,13 @@ const BookingForm = () => {
 
   const handleFormSubmit = (data) => {
     if (update) {
-      toast.success("Successfully booking updated!");
+      const tid = toast.success("Successfully booking updated!");
+      setTimeout(() => toast.dismiss(tid), 1000);
       dispatch(updateReservation(data));
       redirect();
     } else {
-      toast.success("Successfully booking created!");
+      const tid = toast.success("Successfully booking created!");
+      setTimeout(() => toast.dismiss(tid), 1000);
       dispatch(createReservation(data));
       redirect();
     }

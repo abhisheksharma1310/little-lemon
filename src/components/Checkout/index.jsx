@@ -83,12 +83,13 @@ const Checkout = () => {
     dispatch(addAddress(newAddress));
     dispatch(addToHistory({ ...order, address: newAddress }));
     dispatch(removeAllFromCart());
-    toast.success(msg, { duration: 2000 });
     goToOrderPage();
   };
 
   const goToOrderPage = () => {
+    const tid = toast.success(msg);
     setTimeout(() => {
+      toast.dismiss(tid);
       navigate("/order");
     }, 2000);
   };

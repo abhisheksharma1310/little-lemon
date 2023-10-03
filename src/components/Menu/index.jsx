@@ -83,9 +83,11 @@ const Menu = ({ menuPage = false }) => {
   const addItemToCart = (id) => {
     if (user?.isLogin) {
       dispatch(addToCart({ id: id, qty: 1 }));
-      toast.success(msg, { duration: 3000 });
+      const tid = toast.success(msg);
+      setTimeout(() => toast.dismiss(tid), 1000);
     } else {
-      toast.error("Login to add item to cart.");
+      const tid = toast.error("Login to add item to cart.");
+      setTimeout(() => toast.dismiss(tid), 2000);
     }
   };
 

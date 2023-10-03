@@ -73,21 +73,25 @@ const Login = () => {
   const handleLogin = (email, password) => {
     if (user.details?.email === email && user.details?.password === password) {
       dispatch(loginStatus(true));
-      toast.success("Login successfull!");
+      const tid = toast.success("Login successfull!");
+      setTimeout(() => toast.dismiss(tid), 1000);
       navigate("/");
     } else if (
       user.details?.email === email &&
       user.details?.password !== password
     ) {
-      toast.error("Password not matched. Enter correct password.");
+      const tid = toast.error("Password not matched. Enter correct password.");
+      setTimeout(() => toast.dismiss(tid), 1000);
     } else {
-      toast.error("Account not found for this email id.");
+      const tid = toast.error("Account not found for this email id.");
+      setTimeout(() => toast.dismiss(tid), 1000);
     }
   };
 
   const handleSignup = (data) => {
     if (user.details?.email === data?.email) {
-      toast.error("Account allready exist for this email please login");
+      const tid = toast.error("Account allready exist for this email please login");
+      setTimeout(() => toast.dismiss(tid), 1000);
       toggleLoginSignup();
     } else if (user.details?.email !== data?.email) {
       toast(
@@ -113,7 +117,8 @@ const Login = () => {
 
   const handleCreateAccount = (data) => {
     dispatch(createUser(data));
-    toast.success("Signup successfull!");
+    const tid = toast.success("Signup successfull!");
+    setTimeout(() => toast.dismiss(tid), 1000);
     dispatch(loginStatus(true));
     navigate("/");
   };
