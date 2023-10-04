@@ -6,7 +6,7 @@
   --secondary-color-black: #333333;
   --secondary-color-gray: #666666;
   --secondary-color-varient-white: #fffef2;
-  --secondary-color-varient-white: #edefef;
+  --secondary-color-varient-gray: #edefef;
   --secondary-color-varient-red: #491111;
 }
 
@@ -23,6 +23,7 @@
 .main-area{
   display: grid;
   grid-template-areas: 'nav';
+  position: sticky;
   overflow: hidden;
 }
 

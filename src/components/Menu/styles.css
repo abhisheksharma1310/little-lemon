@@ -79,7 +79,7 @@
   flex-direction: column;
   gap: 0.5em;
   width: 20em;
-  background-color: var(--secondary-color-varient-white);
+  background-color: var(--secondary-color-varient-gray);
   border-radius: 0.5em;
 }
 
