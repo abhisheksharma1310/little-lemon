@@ -64,6 +64,9 @@
 
 .menu-item-p {
   width: 35%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 .menu-item-select {

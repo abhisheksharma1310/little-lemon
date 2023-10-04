@@ -1,10 +1,12 @@
 {
+  "lang": "en-US",
   "short_name": "Little Lemon",
   "name": "Little Lemon Restaurant App",
+  "description": "A family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
@@ -18,8 +20,28 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "id": "/",
+  "start_url": "/",
+  "display":  "fullscreen",
+  "theme_color": "#495e57",
+  "background_color": "#ffffff",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "minimal-ui"
+  ],
+  "screenshots": [
+    {
+      "src": "https://i.ibb.co/0C6m8LH/little-lemon-mockup-nobg.png",
+      "type": "image/png",
+      "sizes": "640x329",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://i.ibb.co/R3sYZKR/little-lemon-mockup-nobg.png",
+      "type": "image/jpg",
+      "sizes": "697x358",
+      "form_factor": "wide"
+    }
+  ]
 }

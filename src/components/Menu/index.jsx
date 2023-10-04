@@ -124,8 +124,9 @@ const Menu = ({ menuPage = false }) => {
         )}
         {user?.isLogin && item?.qty > 0 && (
           <div className="menu-item-p">
-            Qty{" "}
+            <label htmlFor="item-qty">Qty</label>
             <select
+              id="item-qty"
               className="menu-item-select"
               onChange={(e) => {
                 setQty(e, item.id);
