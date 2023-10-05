@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import ToastConfirm from "../Toasts/ToastConfirm";
 
 import "./styles.css";
+import useCurrentAddress from "../../utils/useLocation";
 
 const msg = `Your order is placed successfully.
   You can track you order in order history on online order page.
@@ -20,7 +21,11 @@ const Checkout = () => {
 
   const navigate = useNavigate();
 
-  const [newAddress, setNewAddress] = useState(address);
+  const currentAddress = useCurrentAddress();
+
+  const [newAddress, setNewAddress] = useState(
+    address === "" ? currentAddress : address
+  );
   const [success, setSuccess] = useState(true);
 
   const buttonRef = useRef(null);
@@ -98,6 +103,10 @@ const Checkout = () => {
     buttonRef.current.disabled = !success;
   }, [success]);
 
+  useEffect(() => {
+    if (currentAddress !== "") setNewAddress(currentAddress);
+  }, [currentAddress]);
+
   return (
     <div className="checkout-section">
       <div>
@@ -113,7 +122,7 @@ const Checkout = () => {
           <textarea
             name="address"
             rows={2}
-            defaultValue={address === "" ? "Enter your address" : address}
+            value={newAddress}
             onChange={handleAddress}
           />
           <hr />

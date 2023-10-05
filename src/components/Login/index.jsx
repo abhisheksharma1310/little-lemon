@@ -93,7 +93,7 @@ const Login = () => {
       const tid = toast.error("Account allready exist for this email please login");
       setTimeout(() => toast.dismiss(tid), 1000);
       toggleLoginSignup();
-    } else if (user.details?.email !== data?.email) {
+    } else if (user.details?.email && user.details?.email !== data?.email) {
       toast(
         ToastConfirm(
           "Are you sure to create new account, ",
@@ -112,6 +112,8 @@ const Login = () => {
           duration: 60000,
         }
       );
+    } else {
+      handleCreateAccount(data);
     }
   };
 

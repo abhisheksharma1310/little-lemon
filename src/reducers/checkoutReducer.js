@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    address: "",
+    address: "Enter your address",
     order: {},
     history: []
 }

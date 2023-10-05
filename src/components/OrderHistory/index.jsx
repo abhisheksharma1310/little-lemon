@@ -7,8 +7,6 @@ import "./styles.css";
 const OrderHistory = () => {
   const privousOrder = useSelector((state) => state.checkout.history);
 
-  console.log("H: ", privousOrder);
-
   return (
     <section className="history-section">
       <div className="history-container">
@@ -90,8 +88,6 @@ const OrderProduct = ({ order }) => {
     });
     return product;
   }, [order]);
-
-  console.log("p:: ", getProducts);
 
   return (
     <div>
