@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import BookingCard from "../components/BookingCard";
 
 const ReservationPage = () => {
   const navigate = useNavigate();
   const reservationList = useSelector((state) => state.reservation.list);
-  const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    if (!user?.isLogin) {
-      const tid = toast.error("You can not access this page. please login.");
-      setTimeout(() => toast.dismiss(tid), 1000);
-      navigate("/login");
-    }
-  }, [user?.isLogin, navigate]);
 
   const bookNew = () => {
     navigate("/reservation/create");
@@ -33,9 +23,6 @@ const ReservationPage = () => {
 
   return (
     <div className="page">
-      <div>
-        <Toaster />
-      </div>
       <header className="page-header">
         <h2>Reserve your table</h2>
       </header>
