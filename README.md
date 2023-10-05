@@ -44,7 +44,7 @@ This project leverages several technologies to deliver its functionality and aes
 - **Redux Toolkit:** Utilized for state management within the web app, allowing for seamless data handling and updates.
 - **React-Router-DOM:** Provides routing and navigation capabilities, enabling smooth transitions between different sections of the app.
 - **Browser-Local-Storage:** Utilized for persistent data storage, ensuring a seamless user experience.
-
+- **Geocoding API:** Free api for converting latitude and longitude into physical address and vice-versa, this Api is used with browser geolocation to get user actual address.
 ## Deployment
 
 You can access the source code and the live web app using the following links:
