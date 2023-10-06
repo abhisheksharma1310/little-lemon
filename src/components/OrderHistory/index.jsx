@@ -98,7 +98,7 @@ const OrderProduct = ({ order }) => {
       <div className="product-container">
         {getProducts?.map((product) => {
           return (
-            <div className="product">
+            <div className="product" key={product?.id}>
               <img
                 src={product?.img}
                 alt={product?.title}
