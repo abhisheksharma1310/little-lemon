@@ -15,6 +15,11 @@
     padding: 1em;
 }
 
+.cart-items {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .cart-details {
     display: grid;
     grid-template-columns: 1fr 2fr;

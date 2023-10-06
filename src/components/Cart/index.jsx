@@ -75,7 +75,7 @@ const Cart = () => {
     setTimeout(() => {
       toast.dismiss(tid);
     }, 2000);
-  }
+  };
 
   const placeOrder = () => {
     const order = {
@@ -146,9 +146,11 @@ const Cart = () => {
           </h2>
         </header>
         {getCartItem.length !== 0 && <hr />}
-        {getCartItem?.map((product) => (
-          <CartDetail key={product.id} product={product} />
-        ))}
+        <div className="cart-items">
+          {getCartItem?.map((product) => (
+            <CartDetail key={product.id} product={product} />
+          ))}
+        </div>
         {getCartItem.length > 0 && (
           <div className="cart-sub-total">
             <p>
