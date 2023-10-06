@@ -206,6 +206,7 @@ const Menu = ({ menuPage = false }) => {
             id="filterBy"
             onChange={(e) => {
               setFilterBy(e.target.value);
+              setCurrentPage(1);
             }}
             defaultValue={filterBy}
           >
