@@ -12,13 +12,13 @@ import BookingForm from "./components/BookingForm";
 import OrderPage from "./pages/OrderPage";
 import Checkout from "./components/Checkout";
 import LoginPage from "./pages/LoginPage";
+import Error from "./components/Error";
 
 function App() {
-
   const user = useSelector((state) => state.user);
 
   const privateRoute = (page) => {
-    return user?.isLogin ? page : <LoginPage/>;
+    return user?.isLogin ? page : <LoginPage />;
   };
 
   return (
@@ -29,12 +29,22 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/menu" element={<MenuPage />} />
-          <Route path="/reservation" element={privateRoute(<ReservationPage />)} />
-          <Route path="/reservation/create" element={privateRoute(<BookingForm />)} />
-          <Route path="reservation/edit/:id" element={privateRoute(<BookingForm />)}/>
+          <Route
+            path="/reservation"
+            element={privateRoute(<ReservationPage />)}
+          />
+          <Route
+            path="/reservation/create"
+            element={privateRoute(<BookingForm />)}
+          />
+          <Route
+            path="reservation/edit/:id"
+            element={privateRoute(<BookingForm />)}
+          />
           <Route path="/order" element={privateRoute(<OrderPage />)} />
           <Route path="/checkout" element={privateRoute(<Checkout />)} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Router>
