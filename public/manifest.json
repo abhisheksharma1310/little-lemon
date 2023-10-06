@@ -17,11 +17,12 @@
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "id": "/",
-  "start_url": "/",
+  "id": "./index.html",
+  "start_url": "./index.html",
   "display":  "fullscreen",
   "theme_color": "#495e57",
   "background_color": "#ffffff",
@@ -35,13 +36,33 @@
       "src": "https://i.ibb.co/0C6m8LH/little-lemon-mockup-nobg.png",
       "type": "image/png",
       "sizes": "640x329",
-      "form_factor": "narrow"
+      "form_factor": "narrow",
+      "label": "web app mockup image"
     },
     {
       "src": "https://i.ibb.co/R3sYZKR/little-lemon-mockup-nobg.png",
       "type": "image/jpg",
       "sizes": "697x358",
-      "form_factor": "wide"
+      "form_factor": "wide",
+      "label": "web app mockup image"
     }
-  ]
+  ],
+  "shortcuts" : [
+    {
+      "name": "Explore menu",
+      "url": "/menu",
+      "description": "Explore food menu and add to cart"
+    },
+    {
+      "name": "Reserve Table",
+      "url": "/reservation",
+      "description": "Reserve table for events"
+    },
+    {
+      "name": "Order food",
+      "url": "/order",
+      "description": "Order food online"
+    }
+  ],
+  "prefer_related_applications": true
 }
