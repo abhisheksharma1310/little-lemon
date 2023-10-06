@@ -14,6 +14,11 @@
   padding: 1em;
 }
 
+.previous-order-items {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .history-item {
   grid-area: item;
   display: grid;

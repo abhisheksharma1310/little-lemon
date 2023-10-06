@@ -14,9 +14,12 @@ const OrderHistory = () => {
           <h2>Order History</h2>
         </header>
         <hr />
-        {privousOrder?.map((order) => (
-          <OrderItems key={order?.id} order={order} />
-        ))}
+        {privousOrder.length === 0 && <p>No previous order found.</p>}
+        <div className="previous-order-items">
+          {privousOrder?.map((order) => (
+            <OrderItems key={order?.id} order={order} />
+          ))}
+        </div>
       </div>
     </section>
   );
