@@ -21,8 +21,8 @@
       "purpose": "maskable"
     }
   ],
-  "id": "https://main--adorable-salmiakki-6c71a9.netlify.app",
-  "start_url": "https://main--adorable-salmiakki-6c71a9.netlify.app",
+  "id": "/",
+  "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#495e57",
   "background_color": "#ffffff",
