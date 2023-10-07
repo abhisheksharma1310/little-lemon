@@ -21,7 +21,6 @@
       "purpose": "maskable"
     }
   ],
-  "scope": "https://main--adorable-salmiakki-6c71a9.netlify.app/reservation/edit/:id",
   "id": "https://main--adorable-salmiakki-6c71a9.netlify.app",
   "start_url": "https://main--adorable-salmiakki-6c71a9.netlify.app",
   "display": "fullscreen",
