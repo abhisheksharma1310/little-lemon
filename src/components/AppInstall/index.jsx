@@ -1,40 +1,17 @@
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import ToastConfirm from "../Toasts/ToastConfirm";
 
 const AppInstall = () => {
   const [installPrompt, setInstallPrompt] = useState(null);
-  const [pwaPrompt, setPwaPrompt] = useState(null);
-
-  const checkPWAINstall = async () => {
-    const relatedApps = await navigator.getInstalledRelatedApps();
-    relatedApps.forEach((app) => {
-      console.log(app.id, app.platform, app.url);
-    });
-    return relatedApps.toString();
-  };
-
-  checkPWAINstall()
-    .then((value) => console.log(value))
-    .catch((err) => console.log(err));
 
   useEffect(() => {
-    window.addEventListener("DOMContentLoaded", () => {
-      let displayMode = "browser tab";
-      if (window.matchMedia("(display-mode: fullscreen)").matches) {
-        displayMode = "fullscreen";
-        console.log("DISPLAY_MODE:", displayMode);
-        setPwaPrompt(true);
-      } else {
-        console.log("Please install the PWA first.");
-      }
-    });
-
+    //listen for if pwa installed by user
     window.addEventListener("appinstalled", (event) => {
-      setPwaPrompt(true);
-      console.log("openPWA", event);
+      successToast("Application installation is in process!");
     });
 
+    //show propmp to install pwa to user
     window.addEventListener("beforeinstallprompt", async (event) => {
       //event.preventDefault();
       if (event) {
@@ -42,18 +19,19 @@ const AppInstall = () => {
       }
     });
 
+    // Clean up the event listener when the component unmounts
     return () => {
-      // Clean up the event listener when the component unmounts
       window.removeEventListener("beforeinstallprompt", () => {
         setInstallPrompt(null);
       });
       window.removeEventListener("appinstalled", () => {
-        setPwaPrompt(null);
+        // setPwaPrompt(null);
       });
     };
   }, []);
 
   useEffect(() => {
+    //when event trigger to show pwa install prompt show it
     const tid = setTimeout(() => {
       if (installPrompt) showInstallButton();
     }, 60000);
@@ -61,23 +39,14 @@ const AppInstall = () => {
     return () => {
       clearTimeout(tid);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [installPrompt]);
 
-  useEffect(() => {
-    const tid = setTimeout(() => {
-      if (pwaPrompt) openPWA();
-    }, 5000);
-
-    return () => {
-      clearTimeout(tid);
-    };
-  }, [pwaPrompt]);
-
+  //toast component for pwa install prompt
   const showInstallButton = () => {
     toast(
       ToastConfirm(
-        "Install this app in your device, and launch it any time!",
+        "Install the little lemon app on your device, and order food from the app!",
         "",
         "Click on Yes for install and click on No to cancel.",
         () => {
@@ -93,67 +62,36 @@ const AppInstall = () => {
     );
   };
 
-  const installApp = () => {
-    toast.promise(installPrompt.prompt(), {
-      loading: "Installing...",
-      success: (data) =>
-        data === "accepted" ? appInstalled : appInstallCancel,
-      error: (err) => appInstallFail,
-    });
+  //take action based on user choice of pwa installation
+  const installApp = async () => {
+    try {
+      const { outcome } = await installPrompt.prompt();
+      if (outcome === "accepted") {
+        successToast("App installed successfully!");
+      } else if (outcome === "dismissed") {
+        errorToast("Application installation canceled.");
+      }
+    } catch (error) {
+      errorToast("Something went wrong.");
+    } finally {
+      setInstallPrompt(null);
+    }
   };
 
-  const appInstalled = () => {
-    const tid = toast.success("Application installed successfully!");
+  //show success toast
+  const successToast = (msg) => {
+    const tid = toast.success(msg);
     setTimeout(() => {
       toast.dismiss(tid);
     }, 2000);
   };
 
-  const appInstallCancel = () => {
-    const tid = toast.error("Application installation fail.");
+  //show error toast
+  const errorToast = (msg) => {
+    const tid = toast.error(msg);
     setTimeout(() => {
       toast.dismiss(tid);
     }, 2000);
-  };
-
-  const appInstallFail = () => {
-    const tid = toast.error("Something went wrong.");
-    setTimeout(() => {
-      toast.dismiss(tid);
-    }, 2000);
-  };
-
-  const openPWA = () => {
-    toast((t) => (
-      <div>
-        <div>
-          <p>
-            You have allready installed this app, click on Yes to open the app!
-          </p>
-        </div>
-        <div className="alert">
-          <button
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-            }}
-          >
-            No
-          </button>
-          <a
-            href="https://main--adorable-salmiakki-6c71a9.netlify.app"
-            target="_blank"
-            className="btn-primary"
-            onClick={() => {
-              toast.dismiss(t.id);
-            }}
-            rel="noreferrer"
-          >
-            Yes
-          </a>
-        </div>
-      </div>
-    ));
   };
 };
 
