@@ -21,9 +21,10 @@
       "purpose": "maskable"
     }
   ],
-  "id": "./index.html",
-  "start_url": "./index.html",
-  "display":  "fullscreen",
+  "scope": "https://main--adorable-salmiakki-6c71a9.netlify.app/reservation/edit/:id",
+  "id": "https://main--adorable-salmiakki-6c71a9.netlify.app",
+  "start_url": "https://main--adorable-salmiakki-6c71a9.netlify.app",
+  "display": "fullscreen",
   "theme_color": "#495e57",
   "background_color": "#ffffff",
   "display_override": [
@@ -47,21 +48,48 @@
       "label": "web app mockup image"
     }
   ],
-  "shortcuts" : [
+  "shortcuts": [
     {
       "name": "Explore menu",
       "url": "/menu",
-      "description": "Explore food menu and add to cart"
+      "description": "Explore food menu and add to cart",
+      "icons": [
+        {
+          "src": "menu_icon.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Reserve Table",
       "url": "/reservation",
-      "description": "Reserve table for events"
+      "description": "Reserve table for events",
+      "icons": [
+        {
+          "src": "reservation_icon.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Order food",
       "url": "/order",
-      "description": "Order food online"
+      "description": "Order food online",
+      "icons": [
+        {
+          "src": "order_icon.png",
+          "sizes": "48x48",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://main--adorable-salmiakki-6c71a9.netlify.app"
     }
   ],
   "prefer_related_applications": true

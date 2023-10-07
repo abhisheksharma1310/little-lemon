@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import MenuItems from "../../assets/data/menu";
 
@@ -117,4 +117,4 @@ const OrderProduct = ({ order }) => {
   );
 };
 
-export default OrderHistory;
+export default memo(OrderHistory);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import testimonialsData from "../../assets/data/testimonials";
 
 import "./styles.css";
@@ -12,9 +12,15 @@ const Testimonials = () => {
         {testimonialsData?.map((testimonial) => {
           return (
             <div key={testimonial?.name} className="testimonial">
-              <p className="testimonial-star">{str.repeat(testimonial?.rating)}</p>
+              <p className="testimonial-star">
+                {str.repeat(testimonial?.rating)}
+              </p>
               <div className="testimonial-profile">
-                <img className="testimonial-profile-pic" src={testimonial?.picture} alt={testimonial?.name}/>
+                <img
+                  className="testimonial-profile-pic"
+                  src={testimonial?.picture}
+                  alt={testimonial?.name}
+                />
                 <p className="testimonial-profile-name">{testimonial?.name}</p>
               </div>
               <p className="testimonial-desc">{testimonial?.desc}</p>
@@ -26,4 +32,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default memo(Testimonials);

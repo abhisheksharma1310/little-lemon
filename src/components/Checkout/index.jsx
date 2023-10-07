@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { memo, useEffect, useMemo, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addAddress, addToHistory } from "../../reducers/checkoutReducer";
 import { removeAllFromCart } from "../../reducers/cartReducer";
@@ -164,4 +164,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default memo(Checkout);

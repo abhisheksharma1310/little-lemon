@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import heroImage from "../../assets/img/restaurant-food.jpg";
@@ -18,7 +18,14 @@ const HeroSection = () => {
               We are a family owned Mediterranean restaurant, focused on
               traditional recipes served with a modern twist.
             </p>
-            <button className="primary-button" onClick={() => {navigate("/reservation")}}>Reserve a table</button>
+            <button
+              className="primary-button"
+              onClick={() => {
+                navigate("/reservation");
+              }}
+            >
+              Reserve a table
+            </button>
           </div>
           <div className="hero-img">
             <img src={heroImage} alt="hero" />
@@ -29,4 +36,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default memo(HeroSection);

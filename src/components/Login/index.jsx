@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -74,24 +74,26 @@ const Login = () => {
     if (user.details?.email === email && user.details?.password === password) {
       dispatch(loginStatus(true));
       const tid = toast.success("Login successfull!");
-      setTimeout(() => toast.dismiss(tid), 1000);
+      setTimeout(() => toast.dismiss(tid), 2000);
       navigate("/");
     } else if (
       user.details?.email === email &&
       user.details?.password !== password
     ) {
       const tid = toast.error("Password not matched. Enter correct password.");
-      setTimeout(() => toast.dismiss(tid), 1000);
+      setTimeout(() => toast.dismiss(tid), 4000);
     } else {
       const tid = toast.error("Account not found for this email id.");
-      setTimeout(() => toast.dismiss(tid), 1000);
+      setTimeout(() => toast.dismiss(tid), 4000);
     }
   };
 
   const handleSignup = (data) => {
     if (user.details?.email === data?.email) {
-      const tid = toast.error("Account allready exist for this email please login");
-      setTimeout(() => toast.dismiss(tid), 1000);
+      const tid = toast.error(
+        "Account allready exist for this email please login"
+      );
+      setTimeout(() => toast.dismiss(tid), 4000);
       toggleLoginSignup();
     } else if (user.details?.email && user.details?.email !== data?.email) {
       toast(
@@ -120,7 +122,7 @@ const Login = () => {
   const handleCreateAccount = (data) => {
     dispatch(createUser(data));
     const tid = toast.success("Signup successfull!");
-    setTimeout(() => toast.dismiss(tid), 1000);
+    setTimeout(() => toast.dismiss(tid), 2000);
     dispatch(loginStatus(true));
     navigate("/");
   };
@@ -223,4 +225,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default memo(Login);

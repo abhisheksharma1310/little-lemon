@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { loginStatus } from "../../reducers/userReducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -118,4 +118,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

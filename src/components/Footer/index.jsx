@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 
 import "./styles.css";
+import AppInstall from "../AppInstall";
 
 const Footer = () => {
   const user = useSelector((state) => state.user);
@@ -108,10 +109,18 @@ const Footer = () => {
         <div className="footer-orders">
           <p>Social media links</p>
           <hr />
-          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">Linkedin </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            Facebook{" "}
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
+            Twitter{" "}
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            Instagram{" "}
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            Linkedin{" "}
+          </a>
         </div>
       </footer>
       <div className="footer-c">
@@ -120,8 +129,9 @@ const Footer = () => {
           <p>© Little Lemon</p>
         </div>
       </div>
+      <AppInstall />
     </div>
   );
 };
 
-export default Footer;
+export default memo(Footer);

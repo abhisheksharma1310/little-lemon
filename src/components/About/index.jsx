@@ -1,5 +1,5 @@
-import React from "react";
-import AboutImg from "../../assets/img/restaurant.jpg"
+import React, { memo } from "react";
+import AboutImg from "../../assets/img/restaurant.jpg";
 
 import "./styles.css";
 
@@ -25,4 +25,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default memo(About);

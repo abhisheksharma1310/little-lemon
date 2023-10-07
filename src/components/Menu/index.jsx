@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import MenuItems from "../../assets/data/menu";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -278,4 +278,4 @@ const Menu = ({ menuPage = false }) => {
   );
 };
 
-export default Menu;
+export default memo(Menu);
