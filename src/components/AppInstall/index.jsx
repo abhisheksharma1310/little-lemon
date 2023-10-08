@@ -11,7 +11,7 @@ const AppInstall = () => {
       successToast("Application installation is in process!");
     });
 
-    //show propmp to install pwa to user
+    //show propmpt to install pwa to user
     window.addEventListener("beforeinstallprompt", async (event) => {
       //event.preventDefault();
       if (event) {
@@ -31,10 +31,10 @@ const AppInstall = () => {
   }, []);
 
   useEffect(() => {
-    //when event trigger to show pwa install prompt show it
+    //when event trigger to show pwa install prompt show install toast
     const tid = setTimeout(() => {
       if (installPrompt) showInstallButton();
-    }, 60000);
+    }, 30000);
 
     return () => {
       clearTimeout(tid);

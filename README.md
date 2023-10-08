@@ -33,6 +33,7 @@ The Little Lemon Restaurant Online Reservation System is a comprehensive web app
 - Make reservations by selecting desired time slots and providing contact information.
 - Elegant and user-friendly UI design.
 - Responsive design ensuring optimal viewing on various devices.
+- Installable on any device as PWA (Progressive Web App) and give experience as a native application whether it is Android, iOS or Windows operating system.
 
 ## Technologies Used
 
@@ -45,6 +46,7 @@ This project leverages several technologies to deliver its functionality and aes
 - **React-Router-DOM:** Provides routing and navigation capabilities, enabling smooth transitions between different sections of the app.
 - **Browser-Local-Storage:** Utilized for persistent data storage, ensuring a seamless user experience.
 - **Geocoding API:** Free api for converting latitude and longitude into physical address and vice-versa, this Api is used with browser geolocation to get user actual address.
+- **Service Worker** Used features of service workers to make the web app a PWA (Progressive web app) make it installable on any device and OS and provide offline capability.
 ## Deployment
 
 You can access the source code and the live web app using the following links:
@@ -53,6 +55,12 @@ You can access the source code and the live web app using the following links:
 - Live Web App: [Little Lemon Restaurant Online](https://main--adorable-salmiakki-6c71a9.netlify.app/)
 
 Feel free to explore the project, provide feedback, and enjoy the Little Lemon Restaurant experience online! If you have any questions or encounter issues, please don't hesitate to reach out.
+
+## Snap
+
+You can watch featues and uses in this slide shows
+
+<a href="https://sites.google.com/view/abhisheksharmawebprojects/projects/little-lemon" target="_blank" title="Little Lemon snaphots slide shows" >Little Lemon snaphots slide shows 👆</a>
 
 ## Local Installation
 
