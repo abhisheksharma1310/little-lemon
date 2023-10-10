@@ -1,78 +1,89 @@
-
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  max-height: 5rem;
+  background-color: var(--primary-color-white);
+  z-index: 10;
+  border-bottom: 1px solid var(--secondary-color-varient-gray);
+}
 
 .nav-logo {
-    grid-area: nav-logo;
-    display: flex;
-    align-items: center;
-    gap: 1vmax;
-    color: var(--secondary-color-black);
-    letter-spacing: .1vmax;
+  grid-area: nav-logo;
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+  color: var(--secondary-color-black);
+  letter-spacing: 0.1vmax;
 }
 
 .nav-link {
-    grid-area: nav-link;
-    display: flex;
-    align-items: center;
-    gap: 1vmax;
-    list-style: none;
-    
+  grid-area: nav-link;
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+  list-style: none;
 }
 
 .menu-link {
-    text-decoration: none;
-    color: var(--secondary-color-black);
-    font-size: 1em;
-    font-weight: 500;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  text-decoration: none;
+  color: var(--secondary-color-black);
+  font-size: 1em;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .active {
-    background-color: var(--primary-color-varient);
-    padding: .2em .5em .3em;
-    color: var(--primary-color-white);
-    border-radius: .5em;
+  background-color: var(--primary-color-varient);
+  padding: 0.2em 0.5em 0.3em;
+  color: var(--primary-color-white);
+  border-radius: 0.5em;
 }
 
 .nav-logo-img {
-    width: 1.5vmax;
+  width: 1.5vmax;
 }
 
 .main-nav {
-    display: grid;
-    grid-template-areas: 'nav-logo nav-link';
-    justify-content: space-between;
-    padding: 2vmax 8vmax;
+  display: grid;
+  grid-template-areas: "nav-logo nav-link";
+  justify-content: space-between;
+  padding: 2vmax 8vmax;
 }
 
-.nav-humburgur{
+.nav-humburgur {
+  display: none;
+  color: var(--secondary-color-black);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .sticky-nav {
+    min-height: 55px;
+    max-height: 20rem;
+  }
+  .nav-humburgur {
+    display: block;
+    position: absolute;
+    right: 1em;
+    cursor: pointer;
+  }
+  .nav-link {
     display: none;
-    color: var(--secondary-color-black);
-    font-weight: 700;
-}
-
-@media (max-width: 720px){
-    .nav-humburgur{
-        display: block;
-        position: absolute;
-        right: 1em;
-        cursor: pointer;
-    }
-    .nav-link {
-        display: none;
-        font-size:2em;
-        padding: 0 .5em;
-    }
-    .nav-m {
-        display: inline;
-    }
-    .menu-link {
-        font-size: .6em;
-    }
-    .main-nav {
-        grid-template-areas: 'nav-logo' 'nav-link';
-        gap: .5em;
-        padding: 2vmax;
-    }
+    font-size: 2em;
+    padding: 0 0.5em;
+  }
+  .nav-m {
+    display: inline;
+  }
+  .menu-link {
+    font-size: 0.6em;
+  }
+  .main-nav {
+    grid-template-areas: "nav-logo" "nav-link";
+    gap: 0.5em;
+    padding: 2vmax;
+  }
 }

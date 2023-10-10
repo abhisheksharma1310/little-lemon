@@ -5,7 +5,7 @@ import "./styles.css";
 
 const Error = () => {
   return (
-    <div>
+    <div className="page">
       <section className="page_404">
         <div className="four_zero_four_bg">
           <h1 className="text-center ">404</h1>

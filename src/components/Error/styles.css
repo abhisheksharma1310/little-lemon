@@ -26,6 +26,7 @@
   margin: 20px 0;
   display: inline-block;
   text-decoration:none;
+  transition: background 1s;
 }
 .link_404:hover {
     background: var(--primary-color-varient);

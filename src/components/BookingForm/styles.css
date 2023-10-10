@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2vmax 8vmax;
+  padding: 6rem 8vmax;
 }
 
 .booking-section h2 {
@@ -38,6 +38,7 @@
     background-color: var(--secondary-color-black);
     color: #fff;
     border-radius: .3em;
+    transition: background-color 2s;
 }
 
 .booking-form input[type="submit"]:hover {

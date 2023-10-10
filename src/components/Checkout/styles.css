@@ -1,6 +1,6 @@
 .checkout-section {
   width: 100vw;
-  padding: 2vmax 8vmax;
+  padding: 6rem 8vmax;
 }
 
 .checkout-container {
@@ -58,6 +58,6 @@
 
 @media (max-width: 720px) {
   .checkout-section {
-    padding: 2vmax;
+    padding: 5rem 2vmax;
   }
 }

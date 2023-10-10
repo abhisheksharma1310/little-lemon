@@ -63,7 +63,7 @@ const Navbar = () => {
   const navClass = humburgur ? "nav-link nav-m" : "nav-link";
 
   return (
-    <>
+    <div className="sticky-nav">
       <div>
         <Toaster />
       </div>
@@ -114,7 +114,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 

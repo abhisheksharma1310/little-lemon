@@ -247,6 +247,7 @@ const Menu = ({ menuPage = false }) => {
         <h2>This week specials!</h2>
         {!menuPage && (
           <button
+            className="btn-primary"
             onClick={() => {
               navigate("/menu");
             }}

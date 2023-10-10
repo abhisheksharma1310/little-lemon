@@ -46,16 +46,6 @@
   flex-shrink: 0;
 }
 
-.hero-content .primary-button {
-  display: flex;
-  padding: 1em 2em;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: .5em;
-  background: var(--primary-color);
-  cursor: pointer;
-}
-
 .hero-container {
   display: grid;
   grid-template-areas: 'hero-content hero-img';

@@ -15,6 +15,7 @@
   border: 0.1em solid #fff;
   border-radius: 0.5em;
   width: 20em;
+  transition: background-color 2s;
 }
 
 .booking-card:hover {
@@ -33,6 +34,11 @@
   font-size: 2em;
   color: #fff;
   padding: 0.5em 0.5em 0;
+
+}
+
+.booking-icon {
+  transition: font-size 2s;
 }
 
 .booking-icon:hover {

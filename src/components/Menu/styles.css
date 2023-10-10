@@ -9,16 +9,6 @@
   font-size: 3em;
 }
 
-.menu-header button {
-  display: flex;
-  padding: 1em;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 0.5em;
-  background: var(--primary-color);
-  cursor: pointer;
-}
-
 .menu-item-img {
   border-radius: 0.5em 0.5em 0 0;
   width: 100%;

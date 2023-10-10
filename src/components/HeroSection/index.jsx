@@ -19,7 +19,7 @@ const HeroSection = () => {
               traditional recipes served with a modern twist.
             </p>
             <button
-              className="primary-button"
+              className="btn-primary"
               onClick={() => {
                 navigate("/reservation");
               }}

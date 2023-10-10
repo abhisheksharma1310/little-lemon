@@ -37,6 +37,7 @@
     background-color: var(--secondary-color-black);
     color: var(--primary-color-white);
     border-radius: .3em;
+    transition: background-color 2s;
 }
 
 .login-form input[type="submit"]:hover {

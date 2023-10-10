@@ -14,20 +14,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.main-nav {
+body {
+  min-height: 100vh;
+}
+
+.stcky-nav {
   grid-area: nav;
 }
 
-.main-area{
+.main-area {
   display: grid;
   grid-template-areas: 'nav';
-  position: sticky;
   overflow: hidden;
 }
 
 .page {
+  padding-top: 5rem;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -48,8 +53,14 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: .5em;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   cursor: pointer;
+  transition: background-color 2s, color 2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-varient);
+  color: white;
 }
 
 .warn-msg {
@@ -67,7 +78,11 @@
 
 
 @media (max-width: 720px) {
+  .page {
+    padding-top: 4rem;
+  }
   .page-header {
+    padding-top: 1rem;
     font-size: 1.5em;
   }
 }
