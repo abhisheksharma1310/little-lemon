@@ -3,7 +3,7 @@
 <img src="https://i.ibb.co/R3sYZKR/little-lemon-mockup-nobg.png" alt="little-lemon-mockup-nobg" width="95%" border="0">
 
 <p align="center">
-    <a href="https://main--adorable-salmiakki-6c71a9.netlify.app/" target="_blank">Click here for live demo 👆</a>
+    <a href="https://little-lemon-restaurant-web.netlify.app/" target="_blank">Click here for live demo 👆</a>
 </p>
 
 Welcome to the Little Lemon Restaurant Online Table Reservation and Online Food Order Web App. This project serves as the capstone project for the Meta Front End Development course and has been developed using cutting-edge technologies including React, Redux Toolkit, React-Router-DOM, and Browser Local Storage API. This README file provides an overview of the project, its features, how to deploy and use it, and instructions for running the project locally.
@@ -49,12 +49,11 @@ This project leverages several technologies to deliver its functionality and aes
 - **Service Worker** Used features of service workers to make the web app a PWA (Progressive web app) make it installable on any device and OS and provide offline capability.
 ## Deployment
 
-You can access the source code and the live web app using the following links:
+You can access the live web app using the following links:
 
-- Code Repository: [GitHub Repository](https://github.com/abhisheksharma1310/little-lemon)
-- Live Web App: [Little Lemon Restaurant Online](https://main--adorable-salmiakki-6c71a9.netlify.app/)
+- Live Web App: [Little Lemon Restaurant Online](https://little-lemon-restaurant-web.netlify.app/)
 
-Feel free to explore the project, provide feedback, and enjoy the Little Lemon Restaurant experience online! If you have any questions or encounter issues, please don't hesitate to reach out.
+Feel free to explore the project, provide feedback, and enjoy the Little Lemon Restaurant experience online!
 
 ## Snap
 
@@ -96,4 +95,4 @@ yarn start
 
 5. The application should now be running locally. Open your web browser and navigate to `http://localhost:3000` to access the Little Lemon Restaurant Online Reservation System.
 
-Enjoy exploring and testing the project on your local machine! If you have any issues or questions during the installation process, please refer to the project's GitHub repository for additional information.
+Enjoy exploring and testing the project on your local machine!
