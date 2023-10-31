@@ -96,27 +96,31 @@ const Login = () => {
       setTimeout(() => toast.dismiss(tid), 4000);
       toggleLoginSignup();
     } else if (user.details?.email && user.details?.email !== data?.email) {
-      toast(
-        ToastConfirm(
-          "Are you sure to create new account, ",
-          "your privous account and all its data will be deleted.",
-          "This is because this app uses browser local storage as its primary storage.",
-          () => {
-            toggleLoginSignup();
-          },
-          () => {
-            localStorage.clear();
-            dispatch({ type: "CLEAR_DATA" });
-            handleCreateAccount(data);
-          }
-        ),
-        {
-          duration: 60000,
-        }
-      );
+      warnforNewSignup(data);
     } else {
       handleCreateAccount(data);
     }
+  };
+
+  const warnforNewSignup = (data) => {
+    toast(
+      ToastConfirm(
+        "Are you sure to create new account, ",
+        "your privous account and all its data will be deleted.",
+        "This is because this app uses browser local storage as its primary storage.",
+        () => {
+          toggleLoginSignup();
+        },
+        () => {
+          localStorage.clear();
+          dispatch({ type: "CLEAR_DATA" });
+          handleCreateAccount(data);
+        }
+      ),
+      {
+        duration: 60000,
+      }
+    );
   };
 
   const handleCreateAccount = (data) => {
@@ -125,6 +129,21 @@ const Login = () => {
     setTimeout(() => toast.dismiss(tid), 2000);
     dispatch(loginStatus(true));
     navigate("/");
+  };
+
+  const loginAsGuest = () => {
+    const data = {
+      firstName: "guest",
+      lastName: "user",
+      email: "guest@user.com",
+      password: "1234567890",
+      confirmPassword: "1234567890",
+    };
+    if (user.details?.email && user.details?.email !== data?.email) {
+      warnforNewSignup(data);
+    } else {
+      handleCreateAccount(data);
+    }
   };
 
   return (
@@ -206,12 +225,20 @@ const Login = () => {
       </form>
       <div>
         {isLogin ? (
-          <p>
-            Don't have an account?{" "}
-            <span className="login-btn" onClick={toggleLoginSignup}>
-              Sign Up now
-            </span>
-          </p>
+          <>
+            <p>
+              Login as{" "}
+              <span className="login-btn" onClick={loginAsGuest}>
+                Guest
+              </span>
+            </p>
+            <p>
+              Don't have an account?{" "}
+              <span className="login-btn" onClick={toggleLoginSignup}>
+                Sign Up now
+              </span>
+            </p>
+          </>
         ) : (
           <p>
             Already have an account?{" "}
