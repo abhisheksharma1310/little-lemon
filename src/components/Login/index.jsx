@@ -223,7 +223,7 @@ const Login = () => {
 
         <input type="submit" value={isLogin ? "Login" : "Sign Up"} />
       </form>
-      <div>
+      <div className="text-center">
         {isLogin ? (
           <>
             <p>
